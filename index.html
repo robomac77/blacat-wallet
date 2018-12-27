@@ -1,0 +1,588 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>BlackCat SDK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="res/css/panel.css" type="text/css" />
+
+
+    <script src="lib/rollup/aes.js"></script>
+    <script src="lib/component/aes.js"></script>
+    <script src="lib/component/mode-ecb.js"></script>
+    <script src="lib/component/pad-nopadding.js"></script>
+    <script src="lib/scrypt.js"></script>
+    <script src="lib/jsrsasign.js"></script>
+    <script src="lib/neo-ts.js"></script>
+    <script src="lib/qr-code-with-logo.browser.min.js"></script>
+    <script src="lib/code.js"></script>
+
+</head>
+
+<body style="background-color: cadetblue">
+    <button onclick="initSDK()">初始化SDK</button>
+    <button onclick="login()" style="margin-left:20px">登录</button>
+    <button onclick="showDiv('makerechargediv')" style="margin-left:20px">充值</button>
+    <button onclick="getbalance()" style="margin-left:20px">余额</button>
+
+    <br/>
+    <br/>
+    <button onclick="getUserInfo()" style="margin-left:20px">用户信息</button>
+    <button onclick="getNetType()" style="margin-left:20px">网络类型</button>
+    <button onclick="getHeight()" style="margin-left:20px">高度</button>
+    
+    <hr>
+    <button onclick="showDiv('invokescriptdiv')">合约读取</button>
+    <button onclick="showDiv('makerawtransactiondiv')" style="margin-left:20px">合约交易</button>
+    <button onclick="showDiv('bancordiv')" style="margin-left:20px">bancor</button>
+    <button onclick="showDiv('buyvipdiv')" style="margin-left:20px">buyvip</button>
+    <button onclick="showDiv('pbuydiv')" style="margin-left:20px">partnerBuy</button>
+    <button onclick="showDiv('pupgradediv')" style="margin-left:20px">partnerUpgrade</button>
+
+    <hr>
+    <button onclick="setLang('en')">英文</button>
+    <button onclick="setLang('cn')" style="margin-left:2px">中文</button>
+    <button onclick="setLang('jp')" style="margin-left:2px">日文</button>
+    <button onclick="showMain()" style="margin-left:20px">显示</button>
+    <button onclick="showIcon()" style="margin-left:2px">隐藏</button>
+
+    <button onclick="setDefaultNetType(1)" style="margin-left:20px">默认主网</button>
+    <button onclick="setDefaultNetType(2)" style="margin-left:2px">默认测试网</button>
+
+
+
+    <hr>
+    
+    <button onclick="showDiv('makeGasTransferdiv')" style="margin-left:0px">Gas转账</button>
+    <button onclick="showDiv('makeNeoTransferdiv')" style="margin-left:0px">Neo转账</button>
+    
+    <button onclick="showDiv('makeGasTransferMultidiv')" style="margin-left:20px">Gas批量转账</button>
+    <button onclick="showDiv('confirmNotifydiv')" style="margin-left:20px">确认通知</button>
+
+    <hr>
+
+    <div class="dis" id="invokescriptdiv" style="display:none">
+        nnc（合约地址）:
+        <input style="width: 100%" type="text" id="nnc" name="nnc" value="0xcfe8f6824365f70d382733a92d8f373ee4faf222">
+        <br/> sbParamJson（合约参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="sbParamJson" name="sbParamJson" value='["(addr)AYkiQ74FHWFygR39WizXCz9f4xCLRYCxMT"]'
+        />
+        <br/> sbPushString（合约方法）:
+        <br/>
+        <input style="width: 100%" type="text" id="sbPushString" name="sbPushString" value="balanceOf" />
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="extString" name="extString" value="invokeScript">
+        <br/>
+        <br/>
+        <button onclick="invokescript()">读取</button>
+    </div>
+
+    <div class="dis" id="makerawtransactiondiv" style="display: none">
+        nnc（合约地址）:
+        <br/>
+        <input style="width: 100%" type="text" id="nnc2" name="nnc" value="0x3f7420285874867c30f32e44f304fd62ad1e9573">
+        <br/> sbParamJson（合约参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="sbParamJson2" name="sbParamJson" value='["(addr)AYkiQ74FHWFygR39WizXCz9f4xCLRYCxMT","(address)AWPVmAobCJGxrupvQSnovofakaVb2ue65a","(integer)100000"]'
+        />
+        <br/> sbPushString（合约方法）:
+        <br/>
+        <input style="width: 100%" type="text" id="sbPushString2" name="sbPushString" value="transfer" />
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="extString2" name="extString2" value="makeRawTransaction">
+        <br/>
+        <br/>
+        <button onclick="makerawtransaction()">交易</button>
+    </div>
+
+    <div class="dis" id="makerechargediv" style="display: none">
+        type(类型: cgas、cneo、bct、bcp、btc、eth)：
+        <br/>
+        <input style="width: 100%" type="text" id="makerecharge_type" name="makerecharge_type" value="cgas">
+        <br/>
+        count（充值金额）:
+        <br/>
+        <input style="width: 100%" type="text" id="count" name="count" value="0.001">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="extString3" name="extString3" value="makeRecharge">
+        <br/>
+        <br/>
+        <button onclick="makerecharge()">充值</button>
+    </div>
+
+    <div class="dis" id="confirmNotifydiv" style="display: none">
+        txid（链上交易ID）:
+        <br/>
+        <input style="width: 100%" type="text" id="txid" name="txid" value="">
+        <br/>
+        <br/>
+        <button onclick="confirmappnotify()">确认</button>
+    </div>
+
+
+    <div class="dis" id="makeGasTransferdiv" style="display: none">
+        toaddr（转账地址）:
+        <br/>
+        <input style="width: 100%" type="text" id="toaddr" name="toaddr" value="AQXPAKF7uD5rYbBnqikGDVcsP1Ukpkopg5">
+        <br/> count（转账数量）:
+        <br/>
+        <input style="width: 100%" type="text" id="gascount" name="gascount" value="0.01">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="extString4" name="extString4" value="makeGasTransfer">
+        <br/>
+        <br/>
+        <button onclick="makeGasTransfer()">确认</button>
+    </div>
+    <div class="dis" id="makeNeoTransferdiv" style="display: none">
+        toaddr（转账地址）:
+        <br/>
+        <input style="width: 100%" type="text" id="toaddr" name="toaddr" value="AQXPAKF7uD5rYbBnqikGDVcsP1Ukpkopg5">
+        <br/> count（转账数量）:
+        <br/>
+        <input style="width: 100%" type="text" id="neocount" name="neocount" value="0.01">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="extString5" name="extString5" value="makeNeoTransfer">
+        <br/>
+        <br/>
+        <button onclick="makeNeoTransfer()">确认</button>
+    </div>
+
+    <div class="dis" id="makeGasTransferMultidiv" style="display: none">
+        toaddr（转账地址1）:
+        <br/>
+        <input style="width: 100%" type="text" id="toaddrMulti1" name="toaddrMulti1" value="AbYR3eUbPUcnenEfmbJ7Fc4DUZLabKD6Cf">
+        <br/> count（转账数量1）:
+        <br/>
+        <input style="width: 100%" type="text" id="gascountMulti1" name="gascountMulti1" value="0.001">
+        <br/> extString（透传参数1）:
+        <br/>
+        <input style="width: 100%" type="text" id="extStringMulti1" name="extStringMulti1" value="makeGasTransferMulti1">
+        <br/>
+
+        <br/> 
+        toaddr（转账地址2）:
+        <br/>
+        <input style="width: 100%" type="text" id="toaddrMulti2" name="toaddrMulti2" value="AYkiQ74FHWFygR39WizXCz9f4xCLRYCxMT">
+        <br/> count（转账数量2）:
+        <br/>
+        <input style="width: 100%" type="text" id="gascountMulti2" name="gascountMulti2" value="0.002">
+        <br/> extString（透传参数2）:
+        <br/>
+        <input style="width: 100%" type="text" id="extStringMulti2" name="extStringMulti2" value="makeGasTransferMulti2">
+        <br/>
+        <br/>
+        <button onclick="makeGasTransferMulti()">确认</button>
+    </div>
+
+    <div class="dis" id="bancordiv" style="display: none">
+        asset（代币合约地址）:
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_asset" name="bancor_asset" value="0x663bb7074294e8bcefe89e30e87db55ec3b70c65">
+        <br/> count（数量）:
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_count" name="bancor_count" value="1">
+        <br/>买卖类型（买：1，卖：2）
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_type" name="bancor_type" value="1">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_ext" name="bancor_ext" value="bancor">
+        <br/>
+        <br/>
+        <button onclick="bancor()">确认</button>
+    </div>
+
+    <div class="dis" id="buyvipdiv" style="display: none">
+        month:
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_month" name="buyvip_month" value="1">
+        <br/> coinType(bcp/bct):
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_pay_way" name="buyvip_pay_way" value="bct">
+        <br/>invite:
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_invite" name="buyvip_invite" value="">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_ext" name="buyvip_ext" value="buyvip">
+        <br/>
+        <br/>
+        <button onclick="buyVip()">确认</button>
+    </div>
+
+
+    <div class="dis" id="pbuydiv" style="display: none">
+        bct_nnc:
+        <input style="width: 100%" type="text" id="pbuy_nnc" name="pbuy_nnc" value="0x40a80749ef62da6fc3d74dbf6fc7745148922372">
+        
+        <br/>my_wallet（我的钱包地址）:
+        <input style="width: 100%" type="text" id="pbuy_my_wallet" name="pbuy_my_wallet" value="">
+        
+        <br/>bct_wallet（收款地址）:
+        <input style="width: 100%" type="text" id="pbuy_bct_wallet" name="pbuy_bct_wallet" value="AM5ho5nEodQiai1mCTFDV3YUNYApCorMCX">
+        
+        <br/>bct:
+        <input style="width: 100%" type="text" id="pbuy_bct" name="pbuy_bct" value="1699">
+
+        <br/>inviter:(AbN2K2trYzgx8WMg2H7U7JHH6RQVzz2fnx)
+        <input style="width: 100%" type="text" id="pbuy_inviter" name="pbuy_inviter" value="AbN2K2trYzgx8WMg2H7U7JHH6RQVzz2fnx">
+        
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="pbuy_ext" name="pbuy_ext" value="partner_buy">
+        <br/>
+        <br/>
+        <button onclick="partnerBuy()">确认购买</button>
+    </div>
+
+
+    <div class="dis" id="pupgradediv" style="display: none">
+        bct_nnc:
+        <input style="width: 100%" type="text" id="pupgrade_nnc" name="pupgrade_nnc" value="0x40a80749ef62da6fc3d74dbf6fc7745148922372">
+        
+        <br/>my_wallet（我的钱包地址）:
+        <input style="width: 100%" type="text" id="pupgrade_my_wallet" name="pupgrade_my_wallet" value="">
+        
+        <br/>bct_wallet（收款地址）:
+        <input style="width: 100%" type="text" id="pupgrade_bct_wallet" name="pupgrade_bct_wallet" value="AM5ho5nEodQiai1mCTFDV3YUNYApCorMCX">
+        
+        <br/>bct:
+        <input style="width: 100%" type="text" id="pupgrade_bct" name="pupgrade_bct" value="1699">
+
+        <br/>lv:(升级等级: 2,3,4)
+        <input style="width: 100%" type="text" id="pupgrade_lv" name="pupgrade_lv" value="2">
+        
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="pupgrade_ext" name="pupgrade_ext" value="partner_upgrade">
+        <br/>
+        <br/>
+        <button onclick="partnerUpgrade()">确认升级</button>
+    </div>
+    
+    <hr>
+    <div id="res"></div>
+
+    <script>
+        
+        var listener = function (data) {
+            // 页面显示
+            var resObj = document.getElementById('res')
+            resObj.innerHTML = '<pre>' + JSON.stringify(JSON.parse(data), null, 4) + '</pre>'
+
+            // 回调处理，data是JSON格式String
+            var res = JSON.parse(data)
+            console.log('listener => ', res)
+            switch (res.cmd) {
+                case "loginRes": // 登录回调
+                    var loginInfo = res.data;
+                    // 此处需要发送接收到的数据到服务端验证后再登录应用
+                    break;
+                case "invokescriptRes": // 合约读取调用
+                    var params = res.data.params; // 合约调用参数
+                    var result = res.data.res; // 合约调用结果
+                    if (result.err == true) {
+                        // 执行失败
+                    }
+                    else {
+                        // 执行成功
+                        var success_data = result.info;
+                    }
+                    break;
+                case "makeRawTransactionRes": // 合约写入请求结果
+                    // 回调数据格式参考invokescriptRes
+                    break;
+                case "makeRechargeRes": // 充值回调
+                    // 回调数据格式参考invokescriptRes
+                    break;
+                case "makeGasTransferRes": // GAS转账回调
+                    // 回调数据格式参考invokescriptRes
+                    break;
+                case "confirmAppNotifyRes": // 交易通知接收确认回调
+                    // 回调数据格式参考invokescriptRes
+                    break;
+                case "getBalanceRes": // 获取余额
+                    var result = res.data;
+                    var sgas = result.sgas;
+                    var gas = result.gas;
+                    break;
+                case "getUserInfoRes": // 获取登录用户信息
+                    var userInfo = res.data;
+                    break;
+                case "getNetTypeRes": // 获取网络类型
+                    var net_type = res.data;
+                    if (net_type == 1) {
+                        // 主网
+                    }
+                    else if (net_type == 2) {
+                        // 测试网
+                    }
+                    break;
+                case "changeNetTypeRes": // 网络切换回调
+                    var net_type = res.data;
+                    if (net_type == 1) {
+                        // 主网
+                    }
+                    else if (net_type == 2) {
+                        // 测试网
+                    }
+                    break;
+                case "getAppNotifysRes": // 交易成功回调
+                    for (let i=0; i< res.data.length; i++ ){
+                        let txid = res.data[i].txid;
+                        BlackCat.SDK.confirmAppNotify({txid: txid})
+                    }
+                    break;
+                case "bancorRes": // bancor回调
+                    
+                    break;
+            }
+        };
+
+        var appid = "1";
+        // var appid = "1000005";
+        var appkey = "";
+
+        initSDK()
+        setDefaultNetType(2)
+        login()
+
+
+        function showDiv(id) {
+            document.getElementById("invokescriptdiv").style.display = "none";
+            document.getElementById("makerawtransactiondiv").style.display = "none";
+            document.getElementById("makerechargediv").style.display = "none";
+            document.getElementById("confirmNotifydiv").style.display = "none";
+            document.getElementById("makeGasTransferdiv").style.display = "none";
+            document.getElementById("makeNeoTransferdiv").style.display = "none";
+            document.getElementById("makeGasTransferMultidiv").style.display = "none";
+            document.getElementById("bancordiv").style.display = "none";
+            document.getElementById("buyvipdiv").style.display = "none";
+            document.getElementById("pbuydiv").style.display = "none";
+            document.getElementById("pupgradediv").style.display = "none";
+
+            document.getElementById(id).style.display = ""
+        }
+
+        function initSDK() {
+            BlackCat.SDK.init(appid, appkey, listener, "cn")
+        }
+        function setLang(lang) {
+            BlackCat.SDK.setLang(lang)
+            
+        }
+
+        function login() {
+            BlackCat.SDK.login(function (res) {
+                console.log("[BlaCat]", 'login.callback.function.res => ', res)
+            });
+        }
+
+        function invokescript() {
+            var data = {
+                nnc: document.getElementById('nnc').value,
+                sbParamJson: document.getElementById('sbParamJson').value,
+                sbPushString: document.getElementById('sbPushString').value,
+                extString: document.getElementById('extString').value
+            }
+            data.sbParamJson = JSON.parse(data.sbParamJson)
+            BlackCat.SDK.invokescript(data, function (res) {
+                console.log("[BlaCat]", 'invokescript.callback.function.res => ', res)
+            })
+        }
+
+        function makerawtransaction() {
+            var data = {
+                nnc: document.getElementById('nnc2').value,
+                sbParamJson: document.getElementById('sbParamJson2').value,
+                sbPushString: document.getElementById('sbPushString2').value,
+                extString: document.getElementById('extString2').value
+            }
+            data.sbParamJson = JSON.parse(data.sbParamJson)
+
+            BlackCat.SDK.makeRawTransaction(data, function (res) {
+                console.log("[BlaCat]", 'makerawtransaction.callback.function.res => ', res)
+            })
+        }
+
+        function makerecharge() {
+            var data = {
+                type: document.getElementById("makerecharge_type").value,
+                count: document.getElementById('count').value,
+                extString: document.getElementById('extString3').value
+            }
+
+            BlackCat.SDK.makeRecharge(data, function (res) {
+                console.log("[BlaCat]", 'makeRecharge.callback.function.res => ', res)
+            })
+        }
+
+        function confirmappnotify() {
+            var data = {
+                txid: document.getElementById('txid').value
+            }
+
+            BlackCat.SDK.confirmAppNotify(data, function (res) {
+                console.log("[BlaCat]", 'confirmAppNotify.callback.function.res => ', res)
+            })
+        }
+
+        function showMain() {
+            BlackCat.SDK.showMain()
+        }
+
+        function showIcon() {
+            BlackCat.SDK.showIcon()
+        }
+
+        function getbalance() {
+            BlackCat.SDK.getBalance(function (res) {
+                console.log("getbalance.callback.function.res ", res)
+            })
+        }
+
+        function getUserInfo() {
+            BlackCat.SDK.getUserInfo(function (res) {
+                console.log("getUserInfo.callback.function.res ", res)
+            })
+        }
+
+        function makeGasTransfer() {
+            var data = {
+                toaddr: document.getElementById('toaddr').value,
+                count: document.getElementById('gascount').value,
+                extString: document.getElementById('extString4').value
+            }
+            BlackCat.SDK.makeGasTransfer(data, function (res) {
+                console.log("makeGasTransfer.callback.function.res ", res)
+            })
+        }
+        function makeNeoTransfer() {
+            var data = {
+                toaddr: document.getElementById('toaddr').value,
+                count: document.getElementById('neocount').value,
+                extString: document.getElementById('extString4').value
+            }
+            BlackCat.SDK.makeNeoTransfer(data, function (res) {
+                console.log("makeNeoTransfer.callback.function.res ", res)
+            })
+        }
+
+        function makeGasTransferMulti() {
+            var data = [
+                {
+                    toaddr: document.getElementById('toaddrMulti1').value,
+                    count: document.getElementById('gascountMulti1').value,
+                    extString: document.getElementById('extStringMulti1').value
+                },
+                {
+                    toaddr: document.getElementById('toaddrMulti2').value,
+                    count: document.getElementById('gascountMulti2').value,
+                    extString: document.getElementById('extStringMulti2').value
+                }
+            ]
+            BlackCat.SDK.makeGasTransferMulti(data, function (res) {
+                console.log("makeGasTransfeMultir.callback.function.res ", res)
+            })
+        }
+
+        function getNetType() {
+            BlackCat.SDK.getNetType(function (res) {
+                console.log("getNetType.callback.function.res ", res)
+            })
+        }
+
+        function setDefaultNetType(type) {
+            BlackCat.SDK.setDefaultNetType(type)
+        }
+
+        function bancor() {
+            var data = {
+                asset: document.getElementById('bancor_asset').value,
+                count: document.getElementById('bancor_count').value,
+                type: document.getElementById('bancor_type').value,
+                extString: document.getElementById('bancor_ext').value
+            }
+            BlackCat.SDK.bancor(data, function (res) {
+                console.log("bancor.callback.function.res ", res)
+            })
+        }
+
+        function getHeight() {
+            BlackCat.SDK.getHeight(function(res) {
+                console.log("getHeight.function.res ", res)
+            })
+        }
+
+        function buyVip() {
+            var data = {
+                month: document.getElementById("buyvip_month").value,
+                pay_way: document.getElementById('buyvip_pay_way').value,
+                invite: document.getElementById("buyvip_invite").value,
+                extString: document.getElementById("buyvip_ext").value,
+            }
+            BlackCat.SDK.buyVip(data, function(res) {
+                console.log("buyVip.function.res ", res)
+            })
+        }
+
+        function partnerBuy() {
+            var bct_nnc = document.getElementById('pupgrade_nnc').value;
+            var bct_mywallet = document.getElementById('pbuy_my_wallet').value;
+            var bct_wallet = document.getElementById('pbuy_bct_wallet').value;
+            var bct_value = document.getElementById('pbuy_bct').value;
+            
+            var inviter = document.getElementById('pbuy_inviter').value;
+
+            var data = {
+                action: "buy",
+                inviter: inviter,
+                nnc: bct_nnc,
+                sbParamJson: ["(addr)"+bct_mywallet,"(address)"+bct_wallet,"(integer)"+bct_value+"0000"],
+                sbPushString: "transfer",
+                extString: document.getElementById('pbuy_ext').value
+            }
+
+            BlackCat.SDK.makeRawTransaction(data, function (res) {
+                console.log("[BlaCat]", 'makerawtransaction.partnerBuy.callback.function.res => ', res)
+            })
+        }
+
+        function partnerExchange() {
+
+        }
+
+        function partnerUpgrade() {
+            var bct_nnc = document.getElementById('pupgrade_nnc').value;
+            var bct_mywallet = document.getElementById('pupgrade_my_wallet').value;
+            var bct_wallet = document.getElementById('pupgrade_bct_wallet').value;
+            var bct_value = document.getElementById('pupgrade_bct').value;
+            
+            var lv = document.getElementById('pupgrade_lv').value;
+
+            var data = {
+                action: "upgrade",
+                lv: lv,
+                nnc: bct_nnc,
+                sbParamJson: ["(addr)"+bct_mywallet,"(address)"+bct_wallet,"(integer)"+bct_value+"0000"],
+                sbPushString: "transfer",
+                extString: document.getElementById('pupgrade_ext').value
+            }
+
+            BlackCat.SDK.makeRawTransaction(data, function (res) {
+                console.log("[BlaCat]", 'makerawtransaction.partnerUpgrade.callback.function.res => ', res)
+            })
+        }
+
+    </script>
+</body>
+
+</html>
