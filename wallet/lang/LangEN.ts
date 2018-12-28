@@ -5,6 +5,7 @@
             return: "Back",
             copy: "Copy",
             ok: "OK",
+            refund: "Refund",
             cancel: "Cancel",
             more: "More",
             info: "Information",
@@ -462,6 +463,12 @@
             pay_transferNEONotEnough: "NEO balance is insufficient!",
             pay_transferCNEONotEnough: "CNEO balance is insufficient!",
             pay_transferCGASNotEnough: "CGAS balance is insufficient!",
+
+            // Refund View
+            refund_transfer: "Refund",
+            refund_transferToAddr: "Receiver Address",
+  
+
 
             // PayView
             pay_wallet: "My Wallet",

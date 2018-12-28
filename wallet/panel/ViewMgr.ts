@@ -48,6 +48,7 @@ namespace BlackCat {
         payExchangeDetailView: PayExchangeDetailView; //交易购买所详情
         payReceivablesView: PayReceivablesView;//收款
         payTransferView: PayTransferView; // 转账
+        RefundView: RefundView; // 退款
 
         addressbookView: AddressbookView; //通讯录
         addressbookDetailsView: AddressbookDetailsView; //通讯录详情
@@ -404,6 +405,14 @@ namespace BlackCat {
                     }
                     this.payExchangeBCTView.start()
                     break;
+                case "RefundView" :
+                   if(!this.RefundView) {
+                       this.RefundView = new RefundView();
+                       this.views[type] = this.RefundView
+                   }
+                   this.RefundView.start()
+                   break;
+
                 case "PayExchangeShowWalletView" :
                     if (!this.payExchangeShowWalletView) {
                         this.payExchangeShowWalletView = new PayExchangeShowWalletView();

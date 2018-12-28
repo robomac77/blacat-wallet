@@ -18,6 +18,8 @@ namespace BlackCat {
             header.classList.add("pc_header")
             this.ObjAppend(this.div, header)
 
+            
+
             //返回
             var returnA = this.objCreate("a")
             returnA.classList.add("iconfont", "icon-bc-fanhui")
@@ -107,28 +109,30 @@ namespace BlackCat {
             }
             this.ObjAppend(divAddressTitle, butCopy)
 
+            
+
             var divAddress = this.objCreate("p")
             divAddress.classList.add("pc_address")
             divAddress.textContent = PayExchangeShowWalletView.callback_params.data.address
-            this.ObjAppend(divObj, divAddress)
-           
+
             // 退款
             var refundButton = this.objCreate("button")
             refundButton.classList.add("iconfont", "icon-bc-tuikuan")
             refundButton.textContent = Main.langMgr.get("refund") 
-
+            this.ObjAppend(divAddress , refundButton)
             
             refundButton.onclick = () => {
-             
-                this.returnTransferPage()
 
-                this.ObjAppend(divObj , refundButton)
+                Main.viewMgr.change("RefundView")
+
+ 
             }
+            this.ObjAppend(divAddressTitle, refundButton)
+           
             
             
             
-
-
+    
 
             //二维码容器
             var divQRCode = this.objCreate("div")
@@ -197,9 +201,9 @@ namespace BlackCat {
             }
         }
 
-        private async returnTransferPage(){
-
-            Main.viewMgr.change("PayTransferView")
+        private async showRefundPopup(){
+            this.hidden()
+            Main.viewMgr.change("RefundView")
         }
 
         private base64ToBlob(code) {

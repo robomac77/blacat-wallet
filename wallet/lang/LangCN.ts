@@ -4,6 +4,7 @@ namespace BlackCat {
         lang = {
             return: "返回",
             copy: "复制",
+            refund:"退款",
             ok: "确定",
             cancel: "取消",
             more: "更多",
@@ -575,6 +576,11 @@ namespace BlackCat {
             pay_exchange_confirmbuy: "确认购买",     
             pay_exchange_purchase_process: "购买流程",
             pay_exchange_processp1: "1.以下是平台提供%type%钱包地址，请去各大交易所转入所需要的%type1%数量，转账成功后上方会显示您的%type2%余额",
+
+            //Refund View
+            refund_transfer: "退款",
+            refund_transferToAddr: "对方转账",
+            
           
             
 

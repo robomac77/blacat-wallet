@@ -20,11 +20,11 @@ namespace BlackCat {
 
             this.apis = [
                 // 调试服
-                // ["CN", "https://blacat.9191wyx.com/apic/"],
+                 ["CN", "https://blacat.9191wyx.com/apic/"],
 
                 // 正式服
-                ["CN", "//apip01.9191wyx.com/apic/"], // gateway
-                ["HK", "//api01.blacat.org/apic/"],
+                //["CN", "//apip01.9191wyx.com/apic/"], // gateway
+                //["HK", "//api01.blacat.org/apic/"],
             ]
 
             this.nodes = {}
