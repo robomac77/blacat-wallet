@@ -111,6 +111,24 @@ namespace BlackCat {
             divAddress.classList.add("pc_address")
             divAddress.textContent = PayExchangeShowWalletView.callback_params.data.address
             this.ObjAppend(divObj, divAddress)
+           
+            // 退款
+            var refundButton = this.objCreate("button")
+            refundButton.classList.add("iconfont", "icon-bc-tuikuan")
+            refundButton.textContent = Main.langMgr.get("refund") 
+
+            
+            refundButton.onclick = () => {
+             
+                this.returnTransferPage()
+
+                this.ObjAppend(divObj , refundButton)
+            }
+            
+            
+            
+
+
 
             //二维码容器
             var divQRCode = this.objCreate("div")
@@ -177,6 +195,11 @@ namespace BlackCat {
                 Main.viewMgr.change("ViewWalletOpen")
                 // this.hidden()
             }
+        }
+
+        private async returnTransferPage(){
+
+            Main.viewMgr.change("PayTransferView")
         }
 
         private base64ToBlob(code) {
