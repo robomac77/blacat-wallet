@@ -201,10 +201,6 @@ namespace BlackCat {
             }
         }
 
-        private async showRefundPopup(){
-            this.hidden()
-            Main.viewMgr.change("RefundView")
-        }
 
         private base64ToBlob(code) {
             let parts = code.split(';base64,');

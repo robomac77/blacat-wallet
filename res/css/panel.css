@@ -174,12 +174,15 @@ button.pc_cancel{background-color: #3b3d4a !important;color: #b2b2b2 !important;
 .pc_token i{font-size: 24px;margin: auto 5px;}
 .pc_old .pc_token{font-size: 14px}
 .pc_haveamounts{width: 80%;margin: 0 auto;font-size: 13px;color: #999;line-height: 2}
+.pc_haveamounts .pc_allbalance{position: absolute;top: 14px;right: 3px;line-height: 1;font-size: 20px;color: #30313b;cursor: pointer;}
+
 .pc_haveamounts span{float: right;}
 
 .pc_haveamounts .pc_income{color: #999}
 .pc_haveamounts .pc_income span{color: #309368}
 .pc_haveamounts .pc_expenditure{color: #999}
 .pc_haveamounts .pc_expenditure span{color: #93304b}
+
 
 
 .pc_speed{width: 80%;margin: 5px auto;}

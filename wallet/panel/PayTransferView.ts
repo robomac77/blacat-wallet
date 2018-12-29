@@ -248,6 +248,8 @@ namespace BlackCat {
             return this.toaddress
         }
 
+        
+
 
         private doinputchange() {
             if (this.transferType == "NEO") {
