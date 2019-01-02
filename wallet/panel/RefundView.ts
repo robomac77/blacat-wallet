@@ -151,14 +151,13 @@ namespace BlackCat {
                 this.doinputchange()
             }
 
-            var allBalance = this.objCreate("a")
-            allBalance.classList.add("pc_transferaddressbook","iconfont","icon-bc-tongxunlu") // 
+            var allBalance = this.objCreate("span")
+            allBalance.classList.add("pc_allbalance") // 
             
             allBalance.onclick = () => {
                 
              this.getAddressbalance()     
              
-
                
             }
             this.ObjAppend(divTransferCount, allBalance)
