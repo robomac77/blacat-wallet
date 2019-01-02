@@ -467,7 +467,7 @@
             // Refund View
             refund_transfer: "Withdraw Funds",
             refund_transferToAddr: "Receiver Address",
-            pc_allbalance: "All",
+            pc_allaccountbalance: "All",
             refund_transCount_cost:"Transfer Cost: 0.0001(NEO)", 
             refund_address:"Withdrawal Address",
             refund_amount:"Withdrawal Amount",

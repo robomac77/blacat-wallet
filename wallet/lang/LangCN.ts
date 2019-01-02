@@ -580,7 +580,7 @@ namespace BlackCat {
             //Refund View
             refund_transfer: "提款",
             refund_transferToAddr: "对方转账",
-            pc_allbalance: "全部",
+            pc_allaccountbalance: "全部",
             refund_transCount_cost:"手续费：0.0001(BTC)",
             refund_address:"收款地址",
             refund_amount:"提款金额",

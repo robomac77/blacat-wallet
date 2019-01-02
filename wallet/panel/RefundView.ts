@@ -151,9 +151,10 @@ namespace BlackCat {
                 this.doinputchange()
             }
 
-            var allBalance = this.objCreate("span")
+            var allBalance = this.objCreate("a")
             allBalance.classList.add("pc_allbalance") // 
-            
+            allBalance.textContent = BlackCat.Main.langMgr.get("pc_allaccountbalance");
+
             allBalance.onclick = () => {
                 
              this.getAddressbalance()     

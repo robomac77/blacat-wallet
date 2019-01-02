@@ -701,7 +701,7 @@ declare namespace BlackCat {
             pay_exchange_processp1: string;
             refund_transfer: string;
             refund_transferToAddr: string;
-            pc_allbalance: string;
+            pc_allaccountbalance: string;
             refund_transCount_cost: string;
             refund_address: string;
             refund_amount: string;
@@ -1224,7 +1224,7 @@ declare namespace BlackCat {
             pay_transferCGASNotEnough: string;
             refund_transfer: string;
             refund_transferToAddr: string;
-            pc_allbalance: string;
+            pc_allaccountbalance: string;
             refund_transCount_cost: string;
             refund_address: string;
             refund_amount: string;
