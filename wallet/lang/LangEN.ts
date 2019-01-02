@@ -469,6 +469,8 @@
             refund_transferToAddr: "Receiver Address",
             pc_allbalance: "All",
             refund_transCount_cost:"Transfer Cost: 0.0001(NEO)", 
+            refund_address:"Refund Address",
+            refund_amount:"Withdraw Amount",
 
 
             // PayView

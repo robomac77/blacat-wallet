@@ -269,6 +269,8 @@ button.pc_cancel{background-color: #3b3d4a !important;color: #b2b2b2 !important;
 .pc_currencylist .coinlogo{float: left;width: 20px;position: relative;top: 10px;margin-right: 5px}
 .pc_currencylist div{padding: 0 20px;border-bottom: 1px solid #3a3c4a;}
 .pc_currencylist div:hover{background: #272836;}
+.pc_allbalance span{cursor: pointer;font-size: 14px}
+
 
 /* 虚拟资产 */
 .pc_assets{display: none;}

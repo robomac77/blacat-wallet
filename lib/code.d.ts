@@ -703,6 +703,8 @@ declare namespace BlackCat {
             refund_transferToAddr: string;
             pc_allbalance: string;
             refund_transCount_cost: string;
+            refund_address: string;
+            refund_amount: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1224,6 +1226,8 @@ declare namespace BlackCat {
             refund_transferToAddr: string;
             pc_allbalance: string;
             refund_transCount_cost: string;
+            refund_address: string;
+            refund_amount: string;
             pay_wallet: string;
             pay_refresh: string;
             pay_wallet_detail: string;

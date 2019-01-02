@@ -120,7 +120,7 @@ namespace BlackCat {
 
             this.inputTransferAddr = this.objCreate("input") as HTMLInputElement
             this.inputTransferAddr.classList.add("pc_transaddress")
-            this.inputTransferAddr.placeholder = Main.langMgr.get("refund_transferToAddr") 
+            this.inputTransferAddr.placeholder = Main.langMgr.get("refund_address") 
             this.inputTransferAddr.value = this.getAddress()
             this.inputTransferAddr.onfocus = () => {
                 this.inputTransferAddr.select()
@@ -143,7 +143,7 @@ namespace BlackCat {
             
 
             this.inputTransferCount = this.objCreate("input") as HTMLInputElement
-            this.inputTransferCount.placeholder = Main.langMgr.get("pay_transferCount")
+            this.inputTransferCount.placeholder = Main.langMgr.get("refund_amount")
            
 
             this.ObjAppend(divTransferCount, this.inputTransferCount)
@@ -152,12 +152,13 @@ namespace BlackCat {
             }
 
             var allBalance = this.objCreate("a")
-            allBalance.classList.add("pc_transferaddressbook", "iconfont", "icon-bc-tongxunlu")
+            allBalance.classList.add("pc_transferaddressbook","iconfont","icon-bc-tongxunlu") // 
             
             allBalance.onclick = () => {
                 
-             this.getAddressbalance()         
-            
+             this.getAddressbalance()     
+             
+
                
             }
             this.ObjAppend(divTransferCount, allBalance)

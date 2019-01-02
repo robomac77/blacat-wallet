@@ -4,7 +4,7 @@ namespace BlackCat {
         lang = {
             return: "返回",
             copy: "复制",
-            refund:"退款",
+            refund:"提款",
             ok: "确定",
             cancel: "取消",
             more: "更多",
@@ -578,10 +578,12 @@ namespace BlackCat {
             pay_exchange_processp1: "1.以下是平台提供%type%钱包地址，请去各大交易所转入所需要的%type1%数量，转账成功后上方会显示您的%type2%余额",
 
             //Refund View
-            refund_transfer: "退款",
+            refund_transfer: "提款",
             refund_transferToAddr: "对方转账",
             pc_allbalance: "全部",
-            refund_transCount_cost:"手续费：0.0001(NEO)",
+            refund_transCount_cost:"手续费：0.0001(BTC)",
+            refund_address:"收款地址",
+            refund_amount:"提款金额",
             
           
             
