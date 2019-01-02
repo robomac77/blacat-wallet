@@ -580,6 +580,7 @@ namespace BlackCat {
             //Refund View
             refund_transfer: "退款",
             refund_transferToAddr: "对方转账",
+            pc_allbalance: "全部",
             refund_transCount_cost:"手续费：0.0001(NEO)",
             
           

@@ -179,7 +179,6 @@ declare namespace BlackCat {
         constructor(parentDiv: any, callback: any, net_fees?: Array<string>);
         setFeeDefault(net_fee?: string): void;
         setNetFeeShowRate(rate?: number): void;
-        createDiv(): void;
         createNoSlideDiv(): void;
         hidden(): void;
         show(): void;
@@ -702,6 +701,7 @@ declare namespace BlackCat {
             pay_exchange_processp1: string;
             refund_transfer: string;
             refund_transferToAddr: string;
+            pc_allbalance: string;
             refund_transCount_cost: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
@@ -1222,6 +1222,7 @@ declare namespace BlackCat {
             pay_transferCGASNotEnough: string;
             refund_transfer: string;
             refund_transferToAddr: string;
+            pc_allbalance: string;
             refund_transCount_cost: string;
             pay_wallet: string;
             pay_refresh: string;

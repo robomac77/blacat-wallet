@@ -131,8 +131,6 @@ namespace BlackCat {
            
             
             
-            
-    
 
             //二维码容器
             var divQRCode = this.objCreate("div")

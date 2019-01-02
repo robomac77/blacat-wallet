@@ -59,71 +59,7 @@ namespace BlackCat {
             }
         }
 
-        createDiv() {
-            //交易速度
-            this.mainDiv = this.objCreate("div") as HTMLElement;
-            this.mainDiv.classList.add("pc_speed")
-            this.ObjAppend(this.parentDiv, this.mainDiv)
-
-            // 手续费
-            this.mainDiv_text = this.objCreate("div")
-            this.ObjAppend(this.mainDiv, this.mainDiv_text)
-
-            // 交易速度选择
-            var divSpeedSelect = this.objCreate("div")
-            var spanspeed = this.objCreate("span")
-            this.ObjAppend(divSpeedSelect, spanspeed)
-            spanspeed.textContent = Main.langMgr.get("pay_transCount_speed") //交易速度
-            this.ObjAppend(this.mainDiv, divSpeedSelect)
-
-            // 免费选择
-            this.gasCost = this.objCreate("input") as HTMLInputElement
-            // this.inputFree.classList.add("iconfont", "icon-bc-shandian")
-            this.gasCost.type = "radio"
-            this.gasCost.onclick = () => {
-                this.dofree()
-            }
-            this.ObjAppend(divSpeedSelect, this.gasCost)
-
-            var divEllipsis = this.objCreate("div")
-            divEllipsis.classList.add("pc_ellipsis")
-            for (let i = 0; i < this.net_fees.length; i++) {
-                divEllipsis.innerHTML += "<label></label>"
-            }
-            this.ObjAppend(divSpeedSelect, divEllipsis)
-
-            // 收费选择
-            this.inputcharge = this.objCreate("input") as HTMLInputElement
-            this.inputcharge.type = "range"
-            this.inputcharge.value = '0'
-            this.inputcharge.max = (this.net_fees.length - 1).toString()
-            this.inputcharge.oninput = () => {
-                this.dospeed()
-            }
-            this.inputcharge.onclick = () => {
-                this.dospeed()
-            }
-            this.ObjAppend(divSpeedSelect, this.inputcharge)
-
-            var divSpeedtips = this.objCreate("ul")
-            divSpeedtips.innerHTML =
-                "<li>"
-                + Main.langMgr.get('pay_transCountTips_free') + "</li><li>"
-                + Main.langMgr.get('pay_transCountTips_slow') + "</li><li>"
-                + Main.langMgr.get('pay_transCountTips_fast')
-                + "</li>"
-            this.ObjAppend(this.mainDiv, divSpeedtips)
-
-            this.ObjAppend(this.parentDiv, this.mainDiv)
-
-            if (this.net_fee == "0") {
-                this.dofree()
-            }
-            else {
-                this.dospeed(this.net_fee)
-            }
-        }
-
+        
         createNoSlideDiv() {
             //交易速度
             this.mainDiv = this.objCreate("div") as HTMLElement;
@@ -139,7 +75,7 @@ namespace BlackCat {
             spanspeed.textContent = BlackCat.Main.langMgr.get("refund_transCount_cost");
             this.ObjAppend(this.mainDiv, divSpeedSelect);
          
-    
+
         }
 
 

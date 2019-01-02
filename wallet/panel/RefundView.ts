@@ -106,37 +106,7 @@ namespace BlackCat {
             divtransferdiv.classList.add("pc_transfertype")
             this.ObjAppend(divtransfer, divtransferdiv)
 
-           // var balancetype = this.objCreate("label");
-           // balancetype.innerHTML = Main.langMgr.get("pay_transferType") //"转账类型：GAS  " 
-           // this.ObjAppend(divtransferdiv, balancetype)
-
-            // 类型
-            //var divtransfertype = this.objCreate("div")
-           // this.selectType = this.objCreate("select") as HTMLSelectElement
-            //this.selectType.classList.add("pc_transfertypes")
-          //  this.ObjAppend(divtransferdiv, this.selectType)
-
-           // this.selectType.onchange = () => {
-          //      this.transferType = this.selectType.value;
-          //      var trans_type = this.transferType.toLowerCase()
-          //      this.spanBalance.innerText = this.transferType + ": " + this.Balances[trans_type]
-          //      this.inputTransferCount.value = ""
-           // }
-
-           // for (let k in this.Balances) {
-           //     var option = this.objCreate("option") as HTMLOptionElement
-           //     option.value = Main.langMgr.get(k)
-          //      option.innerHTML = Main.langMgr.get(k)
-           //     this.ObjAppend(this.selectType, option)
-           // }
-
-            // 余额
-            //this.spanBalance = this.objCreate('span');
-           // this.spanBalance.classList.add('pc_gasbalancespan');  //添加类样式
-          //  var type_lowcase = this.transferType.toLowerCase()
-           // this.spanBalance.innerText = Main.langMgr.get(type_lowcase) + ": " + this.Balances[type_lowcase];
-
-           // this.ObjAppend(divtransferdiv, this.spanBalance);
+           
 
             //输入钱包地址
             this.divTransferAddr = this.objCreate("div") as HTMLDivElement
@@ -182,7 +152,7 @@ namespace BlackCat {
             }
 
             var allBalance = this.objCreate("a")
-            allBalance.classList.add("pc_allbalance")
+            allBalance.classList.add("pc_transferaddressbook", "iconfont", "icon-bc-tongxunlu")
             
             allBalance.onclick = () => {
                 
@@ -207,15 +177,13 @@ namespace BlackCat {
             this.divHaveBalanceAmounts.textContent = "";
             this.ObjAppend(this.divHaveAmounts, this.divHaveBalanceAmounts)
 
-           
-
-
+        
         
             // 手续费
             this.netFeeCom = new NetFeeNoSlide(popupbox, (net_fee) => {
                 this.netFeeChange(net_fee)
             })
-            this.netFeeCom.setFeeDefault()
+           
             this.netFeeCom.createNoSlideDiv()
 
            
@@ -267,9 +235,9 @@ namespace BlackCat {
 
 
         private getAddressbalance(){
-            //if(PayExchangeShowWalletView.address){
-             this.inputTransferCount.value = parseInt(this.Balances.neo).toString()  //   全部金额
-            //}
+           // if(PayExchangeShowWalletView.address){
+             this.inputTransferCount.value = parseInt(this.Balances.neo).toString()  //   选全部金额
+           // }
         }
 
 
