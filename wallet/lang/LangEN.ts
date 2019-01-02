@@ -467,7 +467,7 @@
             // Refund View
             refund_transfer: "Refund",
             refund_transferToAddr: "Receiver Address",
-  
+            refund_transCount_cost:"Transfer Cost: 0.0001(NEO)", 
 
 
             // PayView
