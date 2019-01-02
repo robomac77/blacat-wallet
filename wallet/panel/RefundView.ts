@@ -40,14 +40,14 @@ namespace BlackCat {
 
         private toaddress: string;
 
-        private transferType: string;   //转账类型
+        private transferType: string = "NEO";   //转账类型
 
         static address: string = "";
         static contact: contact;
         static transferType_default: string;
 
         inputCount: HTMLInputElement // 提款金额
-        net_fee: string // 网络交易费
+        net_fee: string = "0.0001" // 网络交易费
 
         reset() {
             for (let k in this.Balances) {
