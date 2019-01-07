@@ -159,6 +159,19 @@ namespace BlackCat {
             }
             var res = await SDK.main.makeGasTransfer(params, callback);
         }
+        // 通用转账
+        static async makeTransfer(params, callback = null) {
+            if (SDK.is_init === false) {
+                console.log("[BlaCat]", '[SDK]', '请先初始化init')
+                return;
+            }
+            if (!SDK.main.isLogined()) {
+                console.log("[BlaCat]", '[SDK]', '请先登录')
+                this.showMain()
+                return;
+            }
+            var res = await SDK.main.makeTransfer(params, callback);
+        }
         // Neo转账
         static async makeNeoTransfer(params, callback = null) {
             if (SDK.is_init === false) {

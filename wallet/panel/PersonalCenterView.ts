@@ -87,26 +87,26 @@ namespace BlackCat {
             this.ObjAppend(liMyinfo, this.myInfo)
 
             //会员
-            // this.liMyinfovip = this.objCreate("li")
-            // this.liMyinfovip.textContent = Main.langMgr.get("myinfo_member")
-            // this.liMyinfovip.onclick = () => {
-            //     this.hidden()
-            //     ModifyVipView.refer = "PersonalCenterView"
-            //     Main.viewMgr.change("ModifyVipView")
-            // }
-            // this.ObjAppend(ulMyinfo, this.liMyinfovip)
+            this.liMyinfovip = this.objCreate("li")
+            this.liMyinfovip.textContent = Main.langMgr.get("myinfo_member")
+            this.liMyinfovip.onclick = () => {
+                this.hidden()
+                ModifyVipView.refer = "PersonalCenterView"
+                Main.viewMgr.change("ModifyVipView")
+            }
+            this.ObjAppend(ulMyinfo, this.liMyinfovip)
 
             //会员标签
-            // this.iMyinfovip = this.objCreate("i")
-            // this.iMyinfovip.classList.add("iconfont", "icon-bc-gengduo")
-            // this.ObjAppend(this.liMyinfovip, this.iMyinfovip)
+            this.iMyinfovip = this.objCreate("i")
+            this.iMyinfovip.classList.add("iconfont", "icon-bc-gengduo")
+            this.ObjAppend(this.liMyinfovip, this.iMyinfovip)
 
             // 会员内容
-            // this.myVip = this.objCreate("span")
-            // this.updateVip()
+            this.myVip = this.objCreate("span")
+            this.updateVip()
 
 
-            // this.ObjAppend(this.liMyinfovip, this.myVip)
+            this.ObjAppend(this.liMyinfovip, this.myVip)
 
 
             //手续费

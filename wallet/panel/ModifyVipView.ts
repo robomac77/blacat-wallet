@@ -333,7 +333,7 @@ namespace BlackCat {
                 }
 
                 // 验证邀请者账号是否正确
-                var uid_res = await ModifyVipView.checkUidFromApi(invite)
+                var uid_res = await ModifyVipView.checkUidFromApi(Main.user.info.uid, Main.user.info.token, invite)
                 if (!uid_res) {
                     if (isSDK) {
                         var rtn_res: Result = new Result()
@@ -443,11 +443,13 @@ namespace BlackCat {
             }
         }
 
-        static async checkUidFromApi(uid: string) {
-            if (uid && uid != "") {
-                var res = await ApiTool.validUid(uid);
-                if (res.hasOwnProperty('errCode') && res.errCode == 100707) {
-                    return true
+        static async checkUidFromApi(uid: string, token: string, inviter_code: string) {
+            if (inviter_code && inviter_code != "") {
+                var res = await ApiTool.validInvite(uid, token, inviter_code);
+                if (res.r == 1) {
+                    if (res.data != "") {
+                        return true
+                    }
                 }
                 return false;
             }

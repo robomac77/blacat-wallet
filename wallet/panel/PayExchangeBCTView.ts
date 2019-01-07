@@ -54,22 +54,10 @@ namespace BlackCat {
         }
        
         private async getIframeUrl() {
-            var res = await ApiTool.getBctIframe(Main.user.info.uid, Main.user.info.token);
-            var nettype = Main.netMgr.type
-            var net = ""
-            var dev = ""
-            if(nettype == 1){
-                net = "&t="+ nettype
-            }else if(nettype == 2){
-                net = "&t="+ nettype
-            }
-            if(this.dev == "pc"){
-                dev = "&m=p"
-            }else if(this.dev == "mobile"){
-                dev = "&m=m"
-            }
+            var t = this.dev == 'pc' ? 'p' : 'm'
+            var res = await ApiTool.getBctIframe(Main.user.info.uid, Main.user.info.token, Main.langMgr.type, Main.langMgr.type, t);
             if (res.r) {
-                this.iframDivElement.innerHTML = '<iframe src='+ res.data+net+dev+ ' width="100%" height="100%" scrolling="no"></iframe>'
+                this.iframDivElement.innerHTML = '<iframe src='+ res.data + ' width="100%" height="100%" scrolling="no"></iframe>'
             }
             else {
                 Main.showErrCode(res.errCode);

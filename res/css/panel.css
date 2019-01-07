@@ -51,7 +51,7 @@
 .pc_windowtest2 .pc_addressbooklist li.pc_addressbooktitle,.pc_windowtest2 .pc_search input,.pc_windowtest2 .pc_addresstitle{background-color: #2a3736;}
 
 /*所有页面的宽高及滚动条*/
-.pc_bj{position: relative;width: 375px;height: 100vh;background-color: #343643; overflow-x: auto;z-index: 2;max-height: 667px;}
+.pc_bj{position: relative;width: 375px;height: 100vh;background-color: #343643;outline: 0;overflow-x: auto;z-index: 2;max-height: 667px;}
 .pc_bj::-webkit-scrollbar {width: 4px;}
 .pc_bj::-webkit-scrollbar-thumb{border-radius: 5px;-webkit-box-shadow: inset 0 0 5px rgba(255,255,255, 0.3);background: rgba(0, 0, 0, 0.2);}
 
@@ -162,7 +162,7 @@ button.pc_cancel{background-color: #3b3d4a !important;color: #b2b2b2 !important;
 .pc_transfertype input:-moz-placeholder {color:#9b9ca0;}
 .pc_transfertype input::-moz-placeholder { color:#9b9ca0;}
 .pc_transfertype input:-ms-input-placeholder {color:#9b9ca0;}
-.pc_transfertype .pc_allbalance{position: absolute;top: 16px;right: 3px;line-height: 1;font-size: 13px;color: #30313b;cursor: pointer;}
+.pc_transfertype .pc_transferbalance{position: absolute;top: 16px;right: 3px;line-height: 1;font-size: 13px;color: #30313b;cursor: pointer;}
 .pc_transfertypes input::-webkit-input-placeholder {color:#9b9ca0;}
 .pc_transfertypes input:-moz-placeholder {color:#9b9ca0;}
 .pc_transfertypes input::-moz-placeholder { color:#9b9ca0;}
@@ -175,16 +175,23 @@ button.pc_cancel{background-color: #3b3d4a !important;color: #b2b2b2 !important;
 .pc_token i{font-size: 24px;margin: auto 5px;}
 .pc_old .pc_token{font-size: 14px}
 .pc_haveamounts{width: 80%;margin: 0 auto;font-size: 13px;color: #999;line-height: 2}
-
-
 .pc_haveamounts span{float: right;}
+
+
+
 
 .pc_haveamounts .pc_income{color: #999}
 .pc_haveamounts .pc_income span{color: #309368}
 .pc_haveamounts .pc_expenditure{color: #999}
 .pc_haveamounts .pc_expenditure span{color: #93304b}
 
-
+.pc_crosschain{width: 80%;margin: 5px auto;font-size: 6px;color: #999;}
+.pc_crosschain ul{height: 20px;line-height: 20px}
+.pc_crosschain li{font-size: 6px;color: #a4a8c2;float: left;width: 28px;text-align: center}
+.pc_crosschain li:first-child{margin-left: 24%;}
+.pc_crosschain li:nth-child(2){margin-left:9%;}
+.pc_crosschain li:last-child{float: right;margin-right: -3px;}
+.pc_crosschain>div{display: block;clear: both;position: relative;height: 20px;font-size: 6px;color:#a4a8c2;line-height: 20px;margin-top: 5px}
 
 .pc_speed{width: 80%;margin: 5px auto;}
 .pc_speed ul{height: 20px;line-height: 20px}
@@ -270,8 +277,6 @@ button.pc_cancel{background-color: #3b3d4a !important;color: #b2b2b2 !important;
 .pc_currencylist .coinlogo{float: left;width: 20px;position: relative;top: 10px;margin-right: 5px}
 .pc_currencylist div{padding: 0 20px;border-bottom: 1px solid #3a3c4a;}
 .pc_currencylist div:hover{background: #272836;}
-.pc_allbalance span{cursor: pointer;font-size: 14px}
-
 
 /* 虚拟资产 */
 .pc_assets{display: none;}
@@ -559,7 +564,7 @@ div.pc_modifysex_active{background-color: #f3ce87;color: #33353e;border-color: #
 
 /*开通会员  */
 .pc_myvip .goods {margin: 70px 15px 15px 15px;color: #ccc;text-align: center}
-.pc_myvip .goods .goods_item {cursor: pointer; display: inline-block;width: 24%;border: 1px solid #434652;padding:10px;position: relative;margin-right: 10px;line-height: 1}
+.pc_myvip .goods .goods_item {cursor: pointer; display: inline-block;width: 28%;border: 1px solid #434652;padding:10px 1%;position: relative;margin-right: 10px;line-height: 1;font-size: 14px}
 .pc_myvip li{
     -webkit-touch-callout: none;
     -moz-user-select: none; /*火狐*/
@@ -574,7 +579,7 @@ div.pc_modifysex_active{background-color: #f3ce87;color: #33353e;border-color: #
 .pc_myvip .goods .goods_item .member_price {font-size: 20px;color:#f3ce87; }
 .pc_myvip .payway{ border-left: 3px solid #fff;padding-left: 10px;color: #fff;display: inline;line-height: 40px;margin-left: 20px}
 .pc_myvip .payul {margin:10px 15px 15px 20px;color: #ccc;}
-.pc_myvip .payul .pay_item{cursor: pointer; display: inline-block;width: 24%;border: 1px solid #434652;padding: 10px;position: relative;margin-right: 10px;text-align: center;line-height: 1}
+.pc_myvip .payul .pay_item{cursor: pointer; display: inline-block;width: 28%;border: 1px solid #434652;padding: 10px 1%;position: relative;margin-right: 10px;text-align: center;line-height: 1;font-size: 14px}
 .pc_myvip .payul .pay_item:last-child{margin: 0}
 .pc_myvip .invitediv{width: 100%;height: 30px;overflow: hidden;}
 .pc_myvip .inviteinput{line-height: 30px;width: 87%;padding-left: 10px;margin: 0 20px;color: #a4a4a5; background-color: #444656;}
@@ -589,8 +594,8 @@ div.pc_modifysex_active{background-color: #f3ce87;color: #33353e;border-color: #
 .pc_myvip .goods_pay{margin: 20px}
 .pc_myvip .goods_pay .payment{display: inline-block;width: 45%;padding-top: 5px;}
 .pc_myvip .goods_pay .payment .paymenttxt{font-size: 10px;color:#8e8e96; }
-.pc_myvip .goods_pay .payment .paymentnum{font-size: 16px;color: #f3ce87;}
-.pc_myvip .goods_pay .paymentbtn{border: 1px solid #f3ce87;padding: 5px 50px;border-radius: 5px;color: #f3ce87;font-size: 16px;float: right;cursor: pointer;}
+.pc_myvip .goods_pay .payment .paymentnum{font-size: 16px;color: #f3ce87;margin-left: 5px;}
+.pc_myvip .goods_pay .paymentbtn{border: 1px solid #f3ce87;padding: 5px 10%;border-radius: 5px;color: #f3ce87;font-size: 16px;float: right;cursor: pointer;}
 .pc_myvip .pc_speed{width: 88%}
 .pc_myvip .pc_speed li:first-child{margin-left: 19%}
 .pc_myvip .pc_speed li:nth-child(2){margin-left: 11%}

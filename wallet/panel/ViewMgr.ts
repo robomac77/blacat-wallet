@@ -11,7 +11,6 @@ namespace BlackCat {
         viewTransferCount: ViewTransferCount; // 输入交易cgas/cneo数量
         viewTransactionConfirm: ViewTransactionConfirm; // 交易确认框
         viewTransferConfirm: ViewTransferConfirm; // Gas交易确认框
-        viewTransConfirmNeo: ViewTransConfirmNeo; // Neo交易确认框
         viewAlert: ViewAlert;//提示
         viewConfirm: ViewConfirm;//确认
         viewToast: ViewToast;//自动消失
@@ -48,7 +47,7 @@ namespace BlackCat {
         payExchangeDetailView: PayExchangeDetailView; //交易购买所详情
         payReceivablesView: PayReceivablesView;//收款
         payTransferView: PayTransferView; // 转账
-        RefundView: RefundView; // 退款
+        payExchangeRefundView: PayExchangeRefundView; // 退款
 
         addressbookView: AddressbookView; //通讯录
         addressbookDetailsView: AddressbookDetailsView; //通讯录详情
@@ -255,20 +254,12 @@ namespace BlackCat {
                     this.viewLoading.start()
                     break;
                 case "ViewTransferConfirm":
-                    console.log("[BlaCat]", '[ViewMgr]', '显示Gas转账确认(' + type + ') ...')
+                    console.log("[BlaCat]", '[ViewMgr]', '显示转账确认(' + type + ') ...')
                     if (!this.viewTransferConfirm) {
                         this.viewTransferConfirm = new ViewTransferConfirm();
                         this.views[type] = this.viewTransferConfirm
                     }
                     this.viewTransferConfirm.start()
-                    break;
-                case "ViewTransConfirmNeo":
-                    console.log("[BlaCat]", '[ViewMgr]', '显示Neo转账确认(' + type + ') ...')
-                    if (!this.viewTransConfirmNeo) {
-                        this.viewTransConfirmNeo = new ViewTransConfirmNeo();
-                        this.views[type] = this.viewTransConfirmNeo
-                    }
-                    this.viewTransConfirmNeo.start()
                     break;
                 case "RegisterView":
                     console.log("[BlaCat]", '[ViewMgr]', '注册(' + type + ') ...')
@@ -399,27 +390,29 @@ namespace BlackCat {
                     this.viewConnecting.start()
                     break;
                 case "PayExchangeBCTView" :
+                    console.log("[BlaCat]", '[ViewMgr]', '显示购买BCT(' + type + ') ...')
                     if (!this.payExchangeBCTView) {
                         this.payExchangeBCTView = new PayExchangeBCTView();
                         this.views[type] = this.payExchangeBCTView
                     }
                     this.payExchangeBCTView.start()
                     break;
-                case "RefundView" :
-                   if(!this.RefundView) {
-                       this.RefundView = new RefundView();
-                       this.views[type] = this.RefundView
-                   }
-                   this.RefundView.start()
-                   break;
-
                 case "PayExchangeShowWalletView" :
+                    console.log("[BlaCat]", '[ViewMgr]', '显示如何获取对应币种(' + type + ') ...')
                     if (!this.payExchangeShowWalletView) {
                         this.payExchangeShowWalletView = new PayExchangeShowWalletView();
                         this.views[type] = this.payExchangeShowWalletView
                     }
                     this.payExchangeShowWalletView.start()
-                break;
+                    break;
+                case "PayExchangeRefundView" :
+                    console.log("[BlaCat]", '[ViewMgr]', '显示退款(' + type + ') ...')
+                    if(!this.payExchangeRefundView) {
+                        this.payExchangeRefundView = new PayExchangeRefundView();
+                        this.views[type] = this.payExchangeRefundView
+                    }
+                    this.payExchangeRefundView.start()
+                    break;
             }
         }
 

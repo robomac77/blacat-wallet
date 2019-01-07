@@ -1,11 +1,10 @@
-﻿namespace BlackCat {
+namespace BlackCat {
     export class LangEN extends LangBase {
 
         lang = {
             return: "Back",
             copy: "Copy",
             ok: "OK",
-            refund: "Refund",
             cancel: "Cancel",
             more: "More",
             info: "Information",
@@ -264,7 +263,7 @@
             register_inputVpass_err: "Please input password again",
             register_inputVpass_inputPass_err: "Inconsistent password!",
             register_inputinvite: "请输入邀请码",
-            register_inputinvite_err : "邀请码已使用或不存在",            
+            register_inputinvite_err: "邀请码已使用或不存在",
 
             register_getCodeSucc: "Verification code was successfully sent",
             register_getCode: "Get Code",
@@ -341,11 +340,12 @@
 
             // PersonalCenterView
             personalcenter: "My Info",
-            myinfo_leve: "Level",   
-            myinfo_modify: "Modify",    
-            myinfo_member: "Membership",  
+            myinfo_leve: "Level",
+            myinfo_modify: "Modify",
+            myinfo_member: "Membership",
             myinfo_openmember: "Upgrade to Membership",
             myinfo_permanentmember: "永久会员",
+
 
             // MyInfoView
             myInfo: "my information",
@@ -389,22 +389,22 @@
             modifyNet_node_err: "This network line is not available, please choose another line!",
 
             // ModifyVipView
-            modifyVip_succ: "Succeeded！",
-            modifyVip_fail: "Failed！",
-            modifyVip_balance_error: "Insufficient %coin_type%！",
-            modifyVip_gas_less: "Insufficient GAS！",
-            modifyVip_invite_err: "The account does not exist！",
+            modifyVip_succ: "Succeeded!",
+            modifyVip_fail: "Failed!",
+            modifyVip_balance_error: "Insufficient %coin_type%!",
+            modifyVip_gas_less: "Insufficient GAS!",
+            modifyVip_invite_err: "The code does not exist!",
             modifyVip_12months: "12 months",
             modifyVip_3months: "3 months",
             modifyVip_1months: "A month",
             modifyVip_payway: "Way",
-            modifyVip_inviteplaceholder: "Please input the account of your introducer.",
+            modifyVip_inviteplaceholder: "Please input invite code",
             modifyVip_paymenttxt: "Amount:",
             modifyVip_payment: "Payment",
             modifyVip_recharge: "Recharge",
-            modifyvip_payAmonth:"%total%%pay_way% per membership month. ",
+            modifyvip_payAmonth: "%total%%pay_way% per membership month. ",
             modifyvip_payconfirm: "%total%%pay_way% per membership %goods_item%months.",
-            
+
 
             //SecurityCenterView
             security_title: "Security Center",
@@ -463,15 +463,6 @@
             pay_transferNEONotEnough: "NEO balance is insufficient!",
             pay_transferCNEONotEnough: "CNEO balance is insufficient!",
             pay_transferCGASNotEnough: "CGAS balance is insufficient!",
-
-            // Refund View
-            refund_transfer: "Withdraw Funds",
-            refund_transferToAddr: "Receiver Address",
-            pc_allaccountbalance: "All",
-            refund_transCount_cost:"Transfer Cost: 0.0001(NEO)", 
-            refund_address:"Withdrawal Address",
-            refund_amount:"Withdrawal Amount",
-
 
             // PayView
             pay_wallet: "My Wallet",
@@ -579,14 +570,26 @@
             pay_exchange_balance_not_enough: "balance is insufficient!",
             pay_exchange_range: "24H Range",
             pay_exchange_buy_ok: "Succeeded!",
-            pay_exchange_consumption: " consumption：",       
+            pay_exchange_consumption: " consumption：",
             pay_exchange_placeholderconfirm: "Please confirm your purchase",
-            pay_exchange_confirmbuy: "Confirm",     
+            pay_exchange_confirmbuy: "Confirm",
             pay_exchange_purchase_process: "Purchase process",
             pay_exchange_processp1: "1.%type% address provided by platform can be found below. Please transfer the corresponding %type1% to the account in Exchange then the system will show your %type2% balance.",
-          
-            
 
+            // PayExchangeRefundView
+            pay_exchange_refund_transfer: "Withdraw",
+            pay_exchange_refund_all: "All",
+            pay_exchange_refund_transCount_cost:"Transfer Cost: 0.0001(NEO)",
+            pay_exchange_refund_address:"Address",
+            pay_exchange_refund_amount:"Amount",
+            pay_exchange_refund_amount_error: "Balance withdrawal error!",
+            pay_exchange_refund_not_enough: "Balance not enough!",
+            pay_exchange_refund_gas_fee_error: "Gas not enough,can't pay fee!",
+            pay_exchange_refund_do_succ: "Withdrawal application successful!",
+            pay_exchange_refund_do_fail: "Withdrawal application failed!",
+            pay_exchange_refund_crosschainfee: "Cross Chain Tx Fee: 0.0001",
+
+            
             // PayExchangeBcpDetail
             pay_exchange_bcp: "Get BCP",
             pay_exchange_create_wallet_fail: "Failed to create a trading wallet, please try it later!",
@@ -631,7 +634,7 @@
             pay_transCountCNEO2NEO: "NEO",
             pay_transCountNEO2CNEO: "CNEO",
             pay_transCountCNEOOLD2OLD: "CNEO(old)",
-            
+
             pay_transCountTips_free: "Free",
             pay_transCountTips_slow: "Slow",
             pay_transCountTips_fast: "Fast",
@@ -717,7 +720,7 @@
             errCode_8200003: " Non-supported transactions",
             errCode_8200004: "Price error! Please refresh and try!",
             errCode_8200006: "Out of stock! Please try it later!",
-            
+
             errCode_default: "Unknown error! Error code: %errCode%",
 
             // wallet

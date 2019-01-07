@@ -116,11 +116,11 @@ namespace BlackCat {
                          || PayListDetailView.list.type == "8"  // bct转账
                          || PayListDetailView.list.type == "13" // neo转账
                         ) {
-                            // gas转账
+                            // 转账
                             for (let k in params) {
                                 html += '<li class="pc_contractAddress">'
-                                    + '<div><label>' + Main.langMgr.get("pay_transferGas_toaddr") + '</label><p>' + params[k].toaddr + '</p></div>'
-                                    + '<div><label>' + Main.langMgr.get("pay_transferGas_count") + '</label><p>' + params[k].count + '</p></div>'
+                                    + '<div><label>' + Main.langMgr.get("pay_transfer_toaddr") + '</label><p>' + params[k].toaddr + '</p></div>'
+                                    + '<div><label>' + Main.langMgr.get("pay_transfer_count") + '</label><p>' + params[k].count + '</p></div>'
                                     + '</li>';
                             }
                         }

@@ -184,8 +184,6 @@ namespace BlackCat.tools {
                 }
             }
 
-            console.log(count.getData().toNumber())
-
             if (count.compareTo(sendcounts) >= 0)//输入大于等于输出
             {
                 tran.outputs = [];

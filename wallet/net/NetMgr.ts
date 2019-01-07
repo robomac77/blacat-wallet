@@ -20,28 +20,31 @@ namespace BlackCat {
 
             this.apis = [
                 // 调试服
-                 ["CN", "https://blacat.9191wyx.com/apic/"],
+                ["CN", "https://blacat.9191wyx.com/apic/"],
 
                 // 正式服
-                //["CN", "//apip01.9191wyx.com/apic/"], // gateway
-                //["HK", "//api01.blacat.org/apic/"],
+                // ["CN", "//apip01.9191wyx.com/apic/"], // gateway
+                // ["HK", "//api01.blacat.org/apic/"],
             ]
 
             this.nodes = {}
             this.nodes[1] = [
                 // 主网nelnode
-                ["CN", "https://api.nel.group/api/mainnet", "_1"],
-                ["CN", "https://nelnode01.9191wyx.com/api/mainnet", "_2"],
+                ["CN", "https://api.nel.group/api/mainnet", "_NEL"],
 
-                ["HK", "https://nelnode01.blacat.org/api/mainnet"],
+                ["CN", "https://mainnet-node-sz-01.9191wyx.com/api/mainnet", "_1"],
+
+                ["HK", "https://mainnet_node_hk_01.blacat.org/api/mainnet", "_1"],
+                ["HK", "https://mainnet_node_hk_02.blacat.org/api/mainnet", "_2"],
             ]
             this.nodes[2] = [
                 // 测试网nelnode
-                ["CN", "https://api.nel.group/api/testnet", "_1"],
-                // ["CN", "https://nelnode00.9191wyx.com/api/testnet", "_2"],
-                ["CN", "https://nelnode02.9191wyx.com/api/testnet", "_2"],
+                ["CN", "https://api.nel.group/api/testnet", "_NEL"],
 
-                ["HK", "https://nelnode00.blacat.org/api/testnet"],
+                ["CN", "https://testnet-node-sz-01.9191wyx.com/api/testnet", "_1"],
+
+                ["HK", "https://testnet_node_hk_01.blacat.org/api/testnet", "_1"],
+                ["HK", "https://testnet_node_hk_02.blacat.org/api/testnet", "_2"],
             ]
 
             this.clis = {}
@@ -331,11 +334,11 @@ namespace BlackCat {
                 tools.WWW.api_cneo = '';
 
                 // BCT
-                tools.CoinTool.id_BCT = "0x40a80749ef62da6fc3d74dbf6fc7745148922372"
+                tools.CoinTool.id_BCT = ""
                 tools.CoinTool.id_BCT_DESTROY = ""
 
                 // BCP
-                tools.CoinTool.id_BCP = "0x04e31cee0443bb916534dad2adf508458920e66d"
+                tools.CoinTool.id_BCP = ""
 
                 // BTC-NEP5
                 tools.CoinTool.id_BTC = ""

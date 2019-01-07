@@ -4,7 +4,6 @@ namespace BlackCat {
         lang = {
             return: "返回",
             copy: "复制",
-            refund:"提款",
             ok: "确定",
             cancel: "取消",
             more: "更多",
@@ -394,12 +393,12 @@ namespace BlackCat {
             modifyVip_fail: "购买会员请求提交失败！",
             modifyVip_balance_error: "%coin_type%余额不足，无法购买！",
             modifyVip_gas_less: "GAS余额不足，无法支付手续费！",
-            modifyVip_invite_err: "推荐者账号不存在！",
+            modifyVip_invite_err: "邀请码不存在！",
             modifyVip_12months: "12个月",
             modifyVip_3months: "3个月",
             modifyVip_1months: "1个月",
             modifyVip_payway: "支付方式",
-            modifyVip_inviteplaceholder: "请输入推荐人账号",
+            modifyVip_inviteplaceholder: "请输入邀请码",
             modifyVip_paymenttxt: "支付金额:",
             modifyVip_payment: "支付",
             modifyVip_recharge: "续费",
@@ -577,17 +576,19 @@ namespace BlackCat {
             pay_exchange_purchase_process: "购买流程",
             pay_exchange_processp1: "1.以下是平台提供%type%钱包地址，请去各大交易所转入所需要的%type1%数量，转账成功后上方会显示您的%type2%余额",
 
-            //Refund View
-            refund_transfer: "提款",
-            refund_transferToAddr: "对方转账",
-            pc_allaccountbalance: "全部",
-            refund_transCount_cost:"手续费：0.0001(BTC)",
-            refund_address:"收款地址",
-            refund_amount:"提款金额",
+            // PayExchangeRefundView
+            pay_exchange_refund_transfer: "提款",
+            pay_exchange_refund_all: "全部",
+            pay_exchange_refund_transCount_cost:"手续费：0.0001(BTC)",
+            pay_exchange_refund_address:"收款地址",
+            pay_exchange_refund_amount:"提款金额",
+            pay_exchange_refund_amount_error: "提款金额错误！",
+            pay_exchange_refund_not_enough: "余额不足！",
+            pay_exchange_refund_gas_fee_error: "GAS不足，无法支付手续费！",
+            pay_exchange_refund_do_succ: "提款申请提交成功！",
+            pay_exchange_refund_do_fail: "提款申请提交失败！",
+            pay_exchange_refund_crosschainfee:"跨链费: 0.0001",
             
-          
-            
-
             // PayExchangeBcpDetail
             pay_exchange_bcp: "获取BCP",
             pay_exchange_create_wallet_fail: "创建交易钱包失败，请稍候重试！",

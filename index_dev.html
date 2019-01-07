@@ -56,6 +56,13 @@
     <button class="sdkbutton" onclick="showDiv('makeTransferdiv')">转账</button>
     <button class="sdkbutton" onclick="showDiv('makeGasTransferMultidiv')">Gas批量转账</button>
     <br><br>
+
+    <hr class="sdkhr">
+    <button class="sdkbutton" onclick="showDiv('bancordiv')">交易所</button>
+    <button class="sdkbutton" onclick="showDiv('buyvipdiv')">会员</button>
+    <button class="sdkbutton" onclick="showDiv('pbuydiv')">购买合伙人</button>
+    <button class="sdkbutton" onclick="showDiv('pupgradediv')">升级合伙人</button>
+    <br><br>
     
     <hr width="100%">
     <button class="sdkbutton" onclick="setLang('cn')">中文</button>
@@ -209,6 +216,92 @@
         <button onclick="makeGasTransferMulti()">确认</button>
     </div>
 
+    <div class="dis" id="bancordiv" style="display: none">
+        asset（代币合约地址）:
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_asset" name="bancor_asset" value="0x663bb7074294e8bcefe89e30e87db55ec3b70c65">
+        <br/> count（数量）:
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_count" name="bancor_count" value="1">
+        <br/>买卖类型（买：1，卖：2）
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_type" name="bancor_type" value="1">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="bancor_ext" name="bancor_ext" value="bancor">
+        <br/>
+        <br/>
+        <button onclick="bancor()">确认</button>
+    </div>
+
+    <div class="dis" id="buyvipdiv" style="display: none">
+        month:
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_month" name="buyvip_month" value="1">
+        <br/> coinType(bcp/bct):
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_pay_way" name="buyvip_pay_way" value="bct">
+        <br/>invite:
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_invite" name="buyvip_invite" value="">
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="buyvip_ext" name="buyvip_ext" value="buyvip">
+        <br/>
+        <br/>
+        <button onclick="buyVip()">确认</button>
+    </div>
+
+
+    <div class="dis" id="pbuydiv" style="display: none">
+        bct_nnc:
+        <input style="width: 100%" type="text" id="pbuy_nnc" name="pbuy_nnc" value="0x40a80749ef62da6fc3d74dbf6fc7745148922372">
+        
+        <br/>my_wallet（我的钱包地址）:
+        <input style="width: 100%" type="text" id="pbuy_my_wallet" name="pbuy_my_wallet" value="">
+        
+        <br/>bct_wallet（收款地址）:
+        <input style="width: 100%" type="text" id="pbuy_bct_wallet" name="pbuy_bct_wallet" value="AM5ho5nEodQiai1mCTFDV3YUNYApCorMCX">
+        
+        <br/>bct:
+        <input style="width: 100%" type="text" id="pbuy_bct" name="pbuy_bct" value="1699">
+
+        <br/>inviter:(AbN2K2trYzgx8WMg2H7U7JHH6RQVzz2fnx)
+        <input style="width: 100%" type="text" id="pbuy_inviter" name="pbuy_inviter" value="AbN2K2trYzgx8WMg2H7U7JHH6RQVzz2fnx">
+        
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="pbuy_ext" name="pbuy_ext" value="partner_buy">
+        <br/>
+        <br/>
+        <button onclick="partnerBuy()">确认购买</button>
+    </div>
+
+
+    <div class="dis" id="pupgradediv" style="display: none">
+        bct_nnc:
+        <input style="width: 100%" type="text" id="pupgrade_nnc" name="pupgrade_nnc" value="0x40a80749ef62da6fc3d74dbf6fc7745148922372">
+        
+        <br/>my_wallet（我的钱包地址）:
+        <input style="width: 100%" type="text" id="pupgrade_my_wallet" name="pupgrade_my_wallet" value="">
+        
+        <br/>bct_wallet（收款地址）:
+        <input style="width: 100%" type="text" id="pupgrade_bct_wallet" name="pupgrade_bct_wallet" value="AM5ho5nEodQiai1mCTFDV3YUNYApCorMCX">
+        
+        <br/>bct:
+        <input style="width: 100%" type="text" id="pupgrade_bct" name="pupgrade_bct" value="1699">
+
+        <br/>lv:(升级等级: 2,3,4)
+        <input style="width: 100%" type="text" id="pupgrade_lv" name="pupgrade_lv" value="2">
+        
+        <br/> extString（透传参数）:
+        <br/>
+        <input style="width: 100%" type="text" id="pupgrade_ext" name="pupgrade_ext" value="partner_upgrade">
+        <br/>
+        <br/>
+        <button onclick="partnerUpgrade()">确认升级</button>
+    </div>
+
     
     <hr class="sdkhr">
     <div id="res"></div>
@@ -299,8 +392,13 @@
             document.getElementById("makerawtransactiondiv").style.display = "none";
             document.getElementById("makerechargediv").style.display = "none";
             document.getElementById("confirmNotifydiv").style.display = "none";
-
+            document.getElementById("makeGasTransferdiv").style.display = "none";
+            document.getElementById("makeNeoTransferdiv").style.display = "none";
             document.getElementById("makeGasTransferMultidiv").style.display = "none";
+            document.getElementById("bancordiv").style.display = "none";
+            document.getElementById("buyvipdiv").style.display = "none";
+            document.getElementById("pbuydiv").style.display = "none";
+            document.getElementById("pupgradediv").style.display = "none";
             document.getElementById("makeTransferdiv").style.display = "none"
 
             document.getElementById(id).style.display = ""
@@ -401,6 +499,26 @@
             })
         }
 
+        function makeGasTransfer() {
+            var data = {
+                toaddr: document.getElementById('toaddr').value,
+                count: document.getElementById('gascount').value,
+                extString: document.getElementById('extString4').value
+            }
+            BlackCat.SDK.makeGasTransfer(data, function (res) {
+                console.log("makeGasTransfer.callback.function.res ", res)
+            })
+        }
+        function makeNeoTransfer() {
+            var data = {
+                toaddr: document.getElementById('neo_toaddr').value,
+                count: document.getElementById('neo_count').value,
+                extString: document.getElementById('neo_extString').value
+            }
+            BlackCat.SDK.makeNeoTransfer(data, function (res) {
+                console.log("makeNeoTransfer.callback.function.res ", res)
+            })
+        }
         function makeTransfer() {
             var data = {
                 type: document.getElementById("trans_type").value,
@@ -441,10 +559,77 @@
             BlackCat.SDK.setDefaultNetType(type)
         }
 
+        function bancor() {
+            var data = {
+                asset: document.getElementById('bancor_asset').value,
+                count: document.getElementById('bancor_count').value,
+                type: document.getElementById('bancor_type').value,
+                extString: document.getElementById('bancor_ext').value
+            }
+            BlackCat.SDK.bancor(data, function (res) {
+                console.log("bancor.callback.function.res ", res)
+            })
+        }
 
         function getHeight() {
             BlackCat.SDK.getHeight(function(res) {
                 console.log("getHeight.function.res ", res)
+            })
+        }
+
+        function buyVip() {
+            var data = {
+                month: document.getElementById("buyvip_month").value,
+                pay_way: document.getElementById('buyvip_pay_way').value,
+                invite: document.getElementById("buyvip_invite").value,
+                extString: document.getElementById("buyvip_ext").value,
+            }
+            BlackCat.SDK.buyVip(data, function(res) {
+                console.log("buyVip.function.res ", res)
+            })
+        }
+
+        function partnerBuy() {
+            var bct_nnc = document.getElementById('pupgrade_nnc').value;
+            var bct_mywallet = document.getElementById('pbuy_my_wallet').value;
+            var bct_wallet = document.getElementById('pbuy_bct_wallet').value;
+            var bct_value = document.getElementById('pbuy_bct').value;
+            
+            var inviter = document.getElementById('pbuy_inviter').value;
+
+            var data = {
+                action: "buy",
+                inviter: inviter,
+                nnc: bct_nnc,
+                sbParamJson: ["(addr)"+bct_mywallet,"(address)"+bct_wallet,"(integer)"+bct_value+"0000"],
+                sbPushString: "transfer",
+                extString: document.getElementById('pbuy_ext').value
+            }
+
+            BlackCat.SDK.makeRawTransaction(data, function (res) {
+                console.log("[BlaCat]", 'makerawtransaction.partnerBuy.callback.function.res => ', res)
+            })
+        }
+
+        function partnerUpgrade() {
+            var bct_nnc = document.getElementById('pupgrade_nnc').value;
+            var bct_mywallet = document.getElementById('pupgrade_my_wallet').value;
+            var bct_wallet = document.getElementById('pupgrade_bct_wallet').value;
+            var bct_value = document.getElementById('pupgrade_bct').value;
+            
+            var lv = document.getElementById('pupgrade_lv').value;
+
+            var data = {
+                action: "upgrade",
+                lv: lv,
+                nnc: bct_nnc,
+                sbParamJson: ["(addr)"+bct_mywallet,"(address)"+bct_wallet,"(integer)"+bct_value+"0000"],
+                sbPushString: "transfer",
+                extString: document.getElementById('pupgrade_ext').value
+            }
+
+            BlackCat.SDK.makeRawTransaction(data, function (res) {
+                console.log("[BlaCat]", 'makerawtransaction.partnerUpgrade.callback.function.res => ', res)
             })
         }
 
