@@ -2471,7 +2471,6 @@ declare namespace BlackCat {
         private getAll;
         private doTransfer;
         private netFeeChange;
-        private verifyAddr;
         private txHash;
         private getBuyContractHash;
         private updateBalance;

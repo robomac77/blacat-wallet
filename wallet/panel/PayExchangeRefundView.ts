@@ -151,17 +151,17 @@ namespace BlackCat {
 
 
         private getAll() {
-            this.inputTransferCount.value = PayExchangeRefundView.balance.toString()  //   选全部金额 change to number
+            this.inputTransferCount.value = PayExchangeRefundView.balance.toString()  //   
         }
 
 
         private async doTransfer() {
-            if(!Main.viewMgr.payView.verifyAddr(this.inputTransferAddr.innerText)){
-               Main.showErrMsg("pay_exchange_refund_addrformat_error", () => {
-                   this.inputTransferAddr.focus()
-            })
-            return;
-        }
+           // if(!Main.viewMgr.payView.verifyAddr(this.inputTransferAddr.value)){
+             //  Main.showErrMsg("pay_exchange_refund_addrformat_error", () => {
+           //        this.inputTransferAddr.focus()
+          //  })
+          //  return;
+       // }
 
       
             // 检查金额格式
@@ -184,7 +184,7 @@ namespace BlackCat {
             }
 
             // 余额判断
-            if (Number(this.inputTransferCount.value) > (Number(PayExchangeRefundView.balance)) - Number(PayExchangeRefundView.crosschain_fee) ){  //扣跨链费
+            if (Number(this.inputTransferCount.value) > (Number(PayExchangeRefundView.balance)) - Number(PayExchangeRefundView.crosschain_fee) ){  
                 Main.showErrMsg("pay_exchange_refund_not_enough", () => {
                     this.inputTransferCount.focus()
                 })
@@ -194,10 +194,11 @@ namespace BlackCat {
             Main.viewMgr.change("ViewLoading")
 
             try {
-                var tat_addr = this.inputTransferAddr.value
+                var tat_addr: string = this.inputTransferAddr.value
+                var wallet: string = Main.user.info.wallet
                 var transfer_type = PayExchangeRefundView.callback_params.type_src
                 var destroy_addr = tools.CoinTool["id_" + transfer_type + "_DESTROY"]
-                var res: Result = await tools.CoinTool.nep5Transaction(Main.user.info.wallet, destroy_addr, tools.CoinTool["id_" + transfer_type], this.inputTransferCount.value, net_fee);
+                var res: Result = await tools.CoinTool.nep5Transaction(wallet, destroy_addr, tools.CoinTool["id_" + transfer_type], this.inputTransferCount.value, net_fee);
             }
             catch (e) {
                 var res = new Result()
@@ -228,7 +229,7 @@ namespace BlackCat {
                         PayTransferView.log_type_detail[transfer_type.toLowerCase()]
                     );
 
-                    this.updateBalance()
+                   // this.updateBalance()
 
                     // "提款操作成功"
                     Main.showInfo("pay_exchange_refund_do_succ")
@@ -260,20 +261,7 @@ namespace BlackCat {
         }
 
 
-        private verifyAddr(addr)
-        {
-            var reg = /^[a-zA-Z0-9]{34,34}$/
-            if (!reg.test(addr))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-
+    
         private txHash: string = this.getBuyContractHash()  
 
         private getBuyContractHash() {

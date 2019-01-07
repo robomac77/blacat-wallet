@@ -1,6 +1,7 @@
 
 
 // /// <reference path="./importpack.ts" />
+/// <reference path="./entity.ts" />
 
 namespace BlackCat.tools {
     export class CoinTool {
