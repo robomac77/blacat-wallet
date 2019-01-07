@@ -167,6 +167,30 @@ declare namespace BlackCat {
     }
 }
 declare namespace BlackCat {
+    class NetFeeNoSlide extends ComponentBase {
+        private parentDiv;
+        private mainDiv;
+        private mainDiv_text;
+        private gasCost;
+        private inputcharge;
+        private net_fee;
+        private net_fees;
+        private net_fee_show_rate;
+        private callback;
+        constructor(parentDiv: any, callback: any, net_fees?: Array<string>);
+        setFeeDefault(net_fee?: string): void;
+        setNetFeeShowRate(rate?: number): void;
+        createNoSlideDiv(): void;
+        hidden(): void;
+        show(): void;
+        private getNetFeesIdx;
+        private dofree;
+        private dospeed;
+        private getNetFeeShow;
+        private showNetFee;
+    }
+}
+declare namespace BlackCat {
     class LangBase {
         lang: any;
         get(key: string): any;
@@ -679,6 +703,7 @@ declare namespace BlackCat {
             pay_exchange_refund_all: string;
             pay_exchange_refund_transCount_cost: string;
             pay_exchange_refund_address: string;
+            pay_exchange_refund_addrformat_error: string;
             pay_exchange_refund_amount: string;
             pay_exchange_refund_amount_error: string;
             pay_exchange_refund_not_enough: string;
@@ -1300,6 +1325,7 @@ declare namespace BlackCat {
             pay_exchange_refund_all: string;
             pay_exchange_refund_transCount_cost: string;
             pay_exchange_refund_address: string;
+            pay_exchange_refund_addrformat_error: string;
             pay_exchange_refund_amount: string;
             pay_exchange_refund_amount_error: string;
             pay_exchange_refund_not_enough: string;
@@ -1921,6 +1947,7 @@ declare namespace BlackCat {
             pay_exchange_refund_all: string;
             pay_exchange_refund_transCount_cost: string;
             pay_exchange_refund_address: string;
+            pay_exchange_refund_addrformat_error: string;
             pay_exchange_refund_amount: string;
             pay_exchange_refund_amount_error: string;
             pay_exchange_refund_not_enough: string;
@@ -2444,7 +2471,7 @@ declare namespace BlackCat {
         private getAll;
         private doTransfer;
         private netFeeChange;
-        private checkTransCount;
+        private verifyAddr;
         private txHash;
         private getBuyContractHash;
         private updateBalance;
@@ -2650,6 +2677,7 @@ declare namespace BlackCat {
         private showChangeNetType;
         private getDivNetSelectType;
         checkTransCount(count: string): boolean;
+        verifyAddr(addr: string): boolean;
         getHeight(type: string): Promise<void>;
         updateHeight(type: any, height: any): void;
         parseTypeDetailType10(type_detail: string): {
@@ -2860,6 +2888,22 @@ declare namespace BlackCat {
         create(): void;
         show(): void;
         key_esc(): void;
+    }
+}
+declare namespace BlackCat {
+    class ViewTransConfirmNeo extends ViewBase {
+        static list: walletLists;
+        private divConfirmSelect;
+        private netFeeCom;
+        private net_fee;
+        constructor();
+        start(): void;
+        create(): void;
+        toRefer(): void;
+        key_esc(): void;
+        private getCnts;
+        private getWallet;
+        private getParams;
     }
 }
 declare namespace BlackCat {

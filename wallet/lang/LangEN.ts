@@ -581,6 +581,7 @@ namespace BlackCat {
             pay_exchange_refund_all: "All",
             pay_exchange_refund_transCount_cost:"Transfer Cost: 0.0001(NEO)",
             pay_exchange_refund_address:"Address",
+            pay_exchange_refund_addrformat_error: "Wrong address format, check address!",
             pay_exchange_refund_amount:"Amount",
             pay_exchange_refund_amount_error: "Balance withdrawal error!",
             pay_exchange_refund_not_enough: "Balance not enough!",

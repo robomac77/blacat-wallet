@@ -581,13 +581,14 @@ namespace BlackCat {
             pay_exchange_refund_all: "全部",
             pay_exchange_refund_transCount_cost:"手续费：0.0001(BTC)",
             pay_exchange_refund_address:"收款地址",
+            pay_exchange_refund_addrformat_error: "地址不对!",
             pay_exchange_refund_amount:"提款金额",
             pay_exchange_refund_amount_error: "提款金额错误！",
             pay_exchange_refund_not_enough: "余额不足！",
             pay_exchange_refund_gas_fee_error: "GAS不足，无法支付手续费！",
             pay_exchange_refund_do_succ: "提款申请提交成功！",
             pay_exchange_refund_do_fail: "提款申请提交失败！",
-            pay_exchange_refund_crosschainfee:"跨链费: 0.0001",
+            pay_exchange_refund_crosschainfee:"跨链费 : 0.0001",
             
             // PayExchangeBcpDetail
             pay_exchange_bcp: "获取BCP",

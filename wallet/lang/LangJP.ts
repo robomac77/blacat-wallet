@@ -581,6 +581,7 @@ namespace BlackCat {
             pay_exchange_refund_all: "全部",
             pay_exchange_refund_transCount_cost:"手续费：0.0001(BTC)",
             pay_exchange_refund_address:"收款地址",
+            pay_exchange_refund_addrformat_error: "地址不对!",
             pay_exchange_refund_amount:"提款金额",
             pay_exchange_refund_amount_error: "提款金额错误！",
             pay_exchange_refund_not_enough: "余额不足！",

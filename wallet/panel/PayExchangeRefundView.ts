@@ -156,7 +156,13 @@ namespace BlackCat {
 
 
         private async doTransfer() {
-            // TODO: 检查地址长度
+            if(!Main.viewMgr.payView.verifyAddr(this.inputTransferAddr.innerText)){
+               Main.showErrMsg("pay_exchange_refund_addrformat_error", () => {
+                   this.inputTransferAddr.focus()
+            })
+            return;
+        }
+
       
             // 检查金额格式
             if (!Main.viewMgr.payView.checkTransCount(this.inputTransferCount.value)) {
@@ -253,21 +259,22 @@ namespace BlackCat {
             }
         }
 
-        private checkTransCount(count: string): boolean {
-            var regex = /(?!^0*(\.0{1,2})?$)^\d{1,14}(\.\d{1,8})?$/
-            if (!regex.test(count)) {
-                return false
+
+        private verifyAddr(addr)
+        {
+            var reg = /^[a-zA-Z0-9]{34,34}$/
+            if (!reg.test(addr))
+            {
+                return false;
             }
-            if (Number(count) <= 0) {
-                return false
+            else
+            {
+                return true;
             }
-            return true
         }
 
 
         private txHash: string = this.getBuyContractHash()  
-
-
 
         private getBuyContractHash() {
             var cHash = ""

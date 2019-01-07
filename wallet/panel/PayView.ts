@@ -1942,6 +1942,18 @@ namespace BlackCat {
             return true
         }
 
+         verifyAddr(addr:string):boolean {
+            var reg = /^[a-zA-Z0-9]{34,34}$/
+            if (!reg.test(addr))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
         async getHeight(type: string) {
             var height = await tools.WWW["api_getHeight_" + type]()
             this.updateHeight(type, height)
