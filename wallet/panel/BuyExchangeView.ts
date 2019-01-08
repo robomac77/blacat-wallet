@@ -306,7 +306,7 @@ namespace BlackCat {
                 })
             }
             
-            // 钱包记录
+            // ABC 余额
             this.divLists = this.objCreate("ul") as HTMLDivElement
             this.divLists.classList.add("pc_paylists")
             this.ObjAppend(this.div, this.divLists)
@@ -318,17 +318,17 @@ namespace BlackCat {
             this.ObjAppend(this.divLists, liRecord)
 
             var spanRecord = this.objCreate("div")
-            spanRecord.innerText = Main.langMgr.get("pay_recentLists") //"近期记录"
+            spanRecord.innerText = Main.langMgr.get("buy_exchange_pay_balance") //"近期记录"
             this.ObjAppend(liRecord, spanRecord)
 
-            // 更多钱包记录
+           
             this.divListsMore = this.objCreate("button")
             this.divListsMore.classList.add("pc_paymore")
-            this.divListsMore.textContent = Main.langMgr.get("pay_more") // "更多"
+            this.divListsMore.textContent = BuyExchangeView.balance.toString() // "更多"
             this.divListsMore.onclick = () => {
                 this.hidden()
-                PayListMoreView.refer = "PayView"
-                Main.viewMgr.change("PayListMoreView")
+               // PayListMoreView.refer = "PayView"
+               // Main.viewMgr.change("PayListMoreView")
             }
             // this.divListsMore.style.display = "none"
             this.ObjAppend(liRecord, this.divListsMore)

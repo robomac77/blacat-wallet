@@ -405,7 +405,7 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 
 
   /*钱包交易所 */
-.pc_exc{ position: relative;width:85%;height: 204px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
+.pc_exc{ position: relative;width:85%;height: 50px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
 .pc_exc .pc_exmydetail{font-size: 20px;color: #e7e7e7;border: 1px solid #666;padding: 2px 5px;border-radius: 3px;float: left;cursor: pointer;}
 .pc_exc .pc_exmydetail.icon-bc-tongxunlu{float: right;}
 .pc_exc .pc_exaddrbook{font-size: 20px;color: #e7e7e7;border: 1px solid #666;padding: 2px 5px;border-radius: 3px;float: left;cursor: pointer;}
@@ -416,6 +416,11 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_cardexchangecon button{border: 1px solid #f3ce87;color:#f3ce87;margin-top: 15px; padding: 2px 0;width: 70px; border-radius: 3px;font-weight: bold}
 .pc_cardexchangecon button:active{background-color: #f3ce87;color: #5c544c;text-shadow: 0 0 0}
 .pc_cardexchangecon button:last-child{margin-left: 30px;}
+
+.pc_paylogs{ padding-bottom: 10px;}
+.pc_paylogs li{height: 65px;padding: 10px 0;margin: 0 20px; border-bottom: 1px solid #424453;position: relative; cursor: pointer;box-sizing: content-box;}
+.pc_paylogs  li:last-child{border-bottom: none}
+.pc_paylogs  .pc_listdate{font-size: 12px}
 
 
 

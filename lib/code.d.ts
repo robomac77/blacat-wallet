@@ -713,6 +713,7 @@ declare namespace BlackCat {
             pay_exchange_refund_crosschainfee: string;
             buy_exchange_pay_received: string;
             buy_exchange_pay_sent: string;
+            buy_exchange_pay_balance: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1337,6 +1338,7 @@ declare namespace BlackCat {
             pay_exchange_refund_crosschainfee: string;
             buy_exchange_pay_received: string;
             buy_exchange_pay_sent: string;
+            buy_exchange_pay_balance: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1961,6 +1963,7 @@ declare namespace BlackCat {
             pay_exchange_refund_crosschainfee: string;
             buy_exchange_pay_received: string;
             buy_exchange_pay_sent: string;
+            buy_exchange_pay_balance: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;

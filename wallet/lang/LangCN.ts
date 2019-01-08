@@ -594,6 +594,8 @@ namespace BlackCat {
             //BuyExchangeView
             buy_exchange_pay_received:"收款",
             buy_exchange_pay_sent:"转账",
+            buy_exchange_pay_balance:"ABC余额",
+
             
             // PayExchangeBcpDetail
             pay_exchange_bcp: "获取BCP",

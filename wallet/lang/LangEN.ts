@@ -594,6 +594,7 @@ namespace BlackCat {
             //BuyExchangeView
             buy_exchange_pay_received:"receive",
             buy_exchange_pay_sent:"send",
+            buy_exchange_pay_balance:"ABC Balance",
 
             
             // PayExchangeBcpDetail
