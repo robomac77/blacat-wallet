@@ -403,6 +403,24 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_describetext p{font-size: 13px;margin-bottom: 10px}
 .pc_addressbookdet .pc_address{width: 85%;margin: 15px auto;color:#ccc;}
 
+
+  /*钱包交易所 */
+.pc_exc{ position: relative;width:85%;height: 204px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
+.pc_exc .pc_exmydetail{font-size: 20px;color: #e7e7e7;border: 1px solid #666;padding: 2px 5px;border-radius: 3px;float: left;cursor: pointer;}
+.pc_exc .pc_exmydetail.icon-bc-tongxunlu{float: right;}
+.pc_exc .pc_exaddrbook{font-size: 20px;color: #e7e7e7;border: 1px solid #666;padding: 2px 5px;border-radius: 3px;float: left;cursor: pointer;}
+.pc_exc .pc_exaddrbook.icon-bc-xiangqing{float: left;}
+.pc_cardexchangecon{color: #c8ab73;font-size: 20px;line-height: 1; position: absolute;top: 60px;left: 0;right: 0; margin:auto;text-align: left}
+.pc_exchangecardrefresh{position: absolute;left: 0;right: 0;top: 110px;text-align: left;cursor: pointer;}
+.pc_exchangecardrefresh span{cursor: pointer;font-size: 7px}
+.pc_cardexchangecon button{border: 1px solid #f3ce87;color:#f3ce87;margin-top: 15px; padding: 2px 0;width: 70px; border-radius: 3px;font-weight: bold}
+.pc_cardexchangecon button:active{background-color: #f3ce87;color: #5c544c;text-shadow: 0 0 0}
+.pc_cardexchangecon button:last-child{margin-left: 30px;}
+
+
+
+
+
 /* 购买GAS详情 */
 
 .buygas .pc_exchangename{text-align: left;height: 45px;line-height: 45px;width: 50%;}

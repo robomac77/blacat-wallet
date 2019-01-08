@@ -590,6 +590,11 @@ namespace BlackCat {
             pay_exchange_refund_do_fail: "Withdrawal application failed!",
             pay_exchange_refund_crosschainfee: "Cross Chain Tx Fee: 0.0001",
 
+
+            //BuyExchangeView
+            buy_exchange_pay_received:"receive",
+            buy_exchange_pay_sent:"send",
+
             
             // PayExchangeBcpDetail
             pay_exchange_bcp: "Get BCP",

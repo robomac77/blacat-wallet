@@ -711,6 +711,8 @@ declare namespace BlackCat {
             pay_exchange_refund_do_succ: string;
             pay_exchange_refund_do_fail: string;
             pay_exchange_refund_crosschainfee: string;
+            buy_exchange_pay_received: string;
+            buy_exchange_pay_sent: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1333,6 +1335,8 @@ declare namespace BlackCat {
             pay_exchange_refund_do_succ: string;
             pay_exchange_refund_do_fail: string;
             pay_exchange_refund_crosschainfee: string;
+            buy_exchange_pay_received: string;
+            buy_exchange_pay_sent: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1955,6 +1959,8 @@ declare namespace BlackCat {
             pay_exchange_refund_do_succ: string;
             pay_exchange_refund_do_fail: string;
             pay_exchange_refund_crosschainfee: string;
+            buy_exchange_pay_received: string;
+            buy_exchange_pay_sent: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -2201,6 +2207,48 @@ declare namespace BlackCat {
         private logoutTime;
         create(): void;
         toRefer(): void;
+    }
+}
+declare namespace BlackCat {
+    class BuyExchangeView extends ViewBase {
+        static balance: number;
+        private balanceElement;
+        private abcbalanceElement;
+        private s_getWalletLists;
+        wallet_addr: string;
+        wallet_addr_other: any;
+        bct: number;
+        bcp: number;
+        gas: number;
+        cgas: number;
+        neo: number;
+        cneo: number;
+        btc: number;
+        eth: number;
+        height_clis: number;
+        private divHeight_clis;
+        height_nodes: number;
+        private divHeight_nodes;
+        listPageNum: number;
+        private walletListsHash;
+        private divLists;
+        private divListsMore;
+        private divNetSelect;
+        create(): void;
+        toRefer(): void;
+        key_esc(): void;
+        private doCancel;
+        private getNetTypeName;
+        private showChangeNetType;
+        private getDivNetSelectType;
+        private wallet_detail;
+        private doMakeReceivables;
+        private doMakeTransfer;
+        private changeToken;
+        private doMakeRefundOld;
+        private makeRefundTransaction;
+        private addGetWalletLists;
+        updateBalance(): void;
     }
 }
 declare namespace BlackCat {
@@ -2469,7 +2517,7 @@ declare namespace BlackCat {
         key_esc(): void;
         private doCancel;
         private getAll;
-        private doTransfer;
+        private doWithdraw;
         private netFeeChange;
         private txHash;
         private getBuyContractHash;
@@ -2867,6 +2915,7 @@ declare namespace BlackCat {
         payReceivablesView: PayReceivablesView;
         payTransferView: PayTransferView;
         payExchangeRefundView: PayExchangeRefundView;
+        buyExchangeView: BuyExchangeView;
         addressbookView: AddressbookView;
         addressbookDetailsView: AddressbookDetailsView;
         addressbookOpView: AddressbookOpView;

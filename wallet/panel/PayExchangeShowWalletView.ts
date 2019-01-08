@@ -119,11 +119,11 @@ namespace BlackCat {
             this.ObjAppend(divAddress , refundButton)
             
             refundButton.onclick = () => {
-                PayExchangeRefundView.refer = ""
-                PayExchangeRefundView.callback_params = PayExchangeShowWalletView.callback_params
-                PayExchangeRefundView.balance = PayExchangeShowWalletView.balance
+                BuyExchangeView.refer = ""
+                BuyExchangeView.callback_params = PayExchangeShowWalletView.callback_params
+                BuyExchangeView.balance = PayExchangeShowWalletView.balance
 
-                Main.viewMgr.change("PayExchangeRefundView")
+                Main.viewMgr.change("BuyExchangeView")
             }
             this.ObjAppend(divAddressTitle, refundButton)
            

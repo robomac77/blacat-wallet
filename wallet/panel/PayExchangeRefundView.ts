@@ -128,7 +128,7 @@ namespace BlackCat {
             var transferObj = this.objCreate("button")
             transferObj.textContent = Main.langMgr.get("ok") // "确认"
             transferObj.onclick = () => {
-                this.doTransfer()   //提款
+                this.doWithdraw()   //提款
             }
             this.ObjAppend(popupbutbox, transferObj)
 
@@ -155,13 +155,13 @@ namespace BlackCat {
         }
 
 
-        private async doTransfer() {
-           // if(!Main.viewMgr.payView.verifyAddr(this.inputTransferAddr.value)){
-             //  Main.showErrMsg("pay_exchange_refund_addrformat_error", () => {
-           //        this.inputTransferAddr.focus()
-          //  })
-          //  return;
-       // }
+        private async doWithdraw() {
+            if(!Main.viewMgr.payView.verifyAddr(this.inputTransferAddr.value)){
+               Main.showErrMsg("pay_exchange_refund_addrformat_error", () => {
+                   this.inputTransferAddr.focus()
+            })
+            return;
+        }
 
       
             // 检查金额格式

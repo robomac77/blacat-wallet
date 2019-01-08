@@ -49,6 +49,8 @@ namespace BlackCat {
         payTransferView: PayTransferView; // 转账
         payExchangeRefundView: PayExchangeRefundView; // 退款
 
+        buyExchangeView: BuyExchangeView; // 交易所
+
         addressbookView: AddressbookView; //通讯录
         addressbookDetailsView: AddressbookDetailsView; //通讯录详情
         addressbookOpView: AddressbookOpView; //通讯录操作联系人信息
@@ -406,13 +408,21 @@ namespace BlackCat {
                     this.payExchangeShowWalletView.start()
                     break;
                 case "PayExchangeRefundView" :
-                    console.log("[BlaCat]", '[ViewMgr]', '显示退款(' + type + ') ...')
+                    console.log("[BlaCat]", '[ViewMgr]', '显示提款(' + type + ') ...')
                     if(!this.payExchangeRefundView) {
                         this.payExchangeRefundView = new PayExchangeRefundView();
                         this.views[type] = this.payExchangeRefundView
                     }
                     this.payExchangeRefundView.start()
                     break;
+                case "BuyExchangeView" :
+                    console.log("[BlaCat]", '[ViewMgr]', '显示交易所(' + type + ') ...')
+                    if(!this.buyExchangeView) {
+                        this.buyExchangeView = new BuyExchangeView();
+                        this.views[type] = this.buyExchangeView
+                    }
+                    this.buyExchangeView.start()
+                    break;    
             }
         }
 

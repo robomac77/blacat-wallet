@@ -589,6 +589,11 @@ namespace BlackCat {
             pay_exchange_refund_do_succ: "提款申请提交成功！",
             pay_exchange_refund_do_fail: "提款申请提交失败！",
             pay_exchange_refund_crosschainfee:"跨链费 : 0.0001",
+
+
+            //BuyExchangeView
+            buy_exchange_pay_received:"收款",
+            buy_exchange_pay_sent:"转账",
             
             // PayExchangeBcpDetail
             pay_exchange_bcp: "获取BCP",
