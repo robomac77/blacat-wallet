@@ -43,6 +43,18 @@ namespace BlackCat {
 
 
 
+        static tokens_coin: Array<Array<string>> = [
+            ["bct", "bcp"],
+            ["gas", "cgas", "neo", "cneo"],
+            ["btc", "eth"],
+        ]
+        // === 老币种
+        static tokens_old: Object = {
+            neo: ["cgas", "cneo"],
+        }
+
+
+
 
 
         create() {
@@ -138,60 +150,142 @@ namespace BlackCat {
             divexTab.classList.add("pc_excurrencynumber")
             this.ObjAppend(divexPages, divexTab)
 
+            /*for (let i = 0; i < BuyExchangeView.exTabs.length; i++) {
+                    let tab = BuyExchangeView.exTabs[i]
+    
+                    // 导航栏
+                    this["token_" + tab] = this.objCreate("div")
+                    this["token_" + tab].innerText = Main.langMgr.get("pay_coin_" + tab)
+                    this["token_" + tab].onclick = () => {
+                        this.changeToken(tab);
+                    }
+                    this.ObjAppend(divexTab, this["token_" + tab])*/
+             
 
-        
+            for (let i = 0; i < PayView.tokens.length; i++) {
+                let token = PayView.tokens[i]
 
-                // 导航栏
-                var divMyAsset = this.objCreate("div") // myasset , buyin , sellout , tradelog
-                divMyAsset.classList.add("pc_excurrencynumber")
-                divMyAsset.innerText = Main.langMgr.get("buy_exchange_purchase_myasset")
-                divMyAsset.onclick = () => {
-                    //this.changeToken(token);
                 
-                this.ObjAppend(divexTab, divMyAsset)
-
-
-                var divBuyIn = this.objCreate("div")
-                divBuyIn.classList.add("pc_excurrencynumber")
-                divBuyIn.innerText = Main.langMgr.get("buy_exchange_purchase_buyin")
-                divBuyIn.onclick = () => {
-
+                this["token_" + token] = this.objCreate("div")
+                this["token_" + token].innerText = Main.langMgr.get("pay_coin_" + token)
+                this["token_" + token].onclick = () => {
+                    this.changeToken(token);
                 }
-                this.ObjAppend(divexTab,divBuyIn)
+                this.ObjAppend(divexTab, this["token_" + token])
 
-                var divSellOut = this.objCreate("div")
-                divSellOut.classList.add("pc_excurrencynumber")
-                divSellOut.innerText = Main.langMgr.get("buy_exchange_purchase_sellout")
-                divSellOut.onclick = () => {
+    
+                  
+               /* 
+                  
+                 // 数字币种list，默认不显示
+                this["token_list_" + token] = this.objCreate("div")
+                this["token_list_" + token].classList.add("pc_currencylist")
+                this["token_list_" + token].style.display = "none"
+                this.ObjAppend(divexTab, this["token_list_" + token])
 
+                // 数字币种具体
+                for (let k = 0; k < PayView.tokens_coin[i].length; k++) {
+                    let coin = PayView.tokens_coin[i][k]
+
+                    let coinElement = this.objCreate("div")
+                    // 名称
+                    coinElement.innerHTML = Main.langMgr.get(coin)
+                    this.ObjAppend(this["token_list_" + token], coinElement)
+                    // LOGO
+                    let logoElement = this.objCreate("img") as HTMLImageElement
+                    logoElement.src = Main.resHost + "res/img/" + coin + ".png"
+                    logoElement.classList.add("coinlogo")
+                    this.ObjAppend(coinElement, logoElement)
+                    // ?号
+                    let labelElement = this.objCreate("label")
+                    labelElement.classList.add("iconfont", "icon-bc-help")
+                    this.ObjAppend(coinElement, labelElement)
+                    let descText = Main.langMgr.get("pay_" + coin + "_desc")
+                    if (descText != "") {
+                        // ?描述
+                        let descElement = this.objCreate("div")
+                        descElement.classList.add("pc_coincon")
+                        descElement.textContent = Main.langMgr.get("pay_" + coin + "_desc")
+                        this.ObjAppend(labelElement, descElement)
+                    }
+                    else {
+                        labelElement.style.display = "none"
+                    }
+                    // 字体图标">"
+                    let moreElement = this.objCreate("i")
+                    moreElement.classList.add("iconfont", "icon-bc-gengduo")
+                    this.ObjAppend(coinElement, moreElement)
+                    // 余额
+                    this["span" + coin.toUpperCase()] = this.objCreate("span")
+                    this["span" + coin.toUpperCase()].textContent = "0"
+                    this.ObjAppend(coinElement, this["span" + coin.toUpperCase()])
+                    // 点击事件
+                    coinElement.onclick = () => {
+                        this["doExchange" + coin.toUpperCase()]()
+                    }
                 }
-                this.ObjAppend(divexTab,divSellOut)
+            }
+            // 显示第一组代币
+            this["token_" + PayView.tokens[0]].classList.add("active")
+            this["token_list_" + PayView.tokens[0]].style.display = ""
 
-                var divTradeLog = this.objCreate("div")
-                divTradeLog.classList.add("pc_excurrencynumber")
-                divTradeLog.innerText = Main.langMgr.get("buy_exchange_purchase_tradelog")
-                divTradeLog.onclick = () => {
-
-                }
-                this.ObjAppend(divexTab,divTradeLog)
-
-
-               //this["token_list_" + token] = this.objCreate("div")
-               //this["token_list_" + token].classList.add("pc_currencylist")
-               //this["token_list_" + token].style.display = "none"
-               //this.ObjAppend(divexPages, this["token_list_" + token])
+            // cgas_old/cneo_old信息
+            for (let token in PayView.tokens_old) {
+                PayView.tokens_old[token].forEach((coin) => {
+                    let coin_upcase = coin.toUpperCase() + "_OLD"
+                    if (tools.CoinTool["id_" + coin_upcase].length > 0) {
+                        tools.CoinTool["id_" + coin_upcase].forEach((old) => {
+                            let coinElement = this.objCreate("div")
+                            // 名称
+                            coinElement.innerHTML = Main.langMgr.get("pay_" + coin)
+                            this.ObjAppend(this["token_list_" + token], coinElement)
+                            // LOGO
+                            let logoElement = this.objCreate("img") as HTMLImageElement
+                            logoElement.src = Main.resHost + "res/img/old" + coin + ".png"
+                            logoElement.classList.add("coinlogo")
+                            this.ObjAppend(coinElement, logoElement)
+                            // ?号
+                            let labelElement = this.objCreate("label")
+                            labelElement.classList.add("iconfont", "icon-bc-help")
+                            this.ObjAppend(coinElement, labelElement)
+                            // ?描述
+                            let descElement = this.objCreate("div")
+                            descElement.classList.add("pc_coincon")
+                            descElement.textContent = old
+                            this.ObjAppend(labelElement, descElement)
+                            // 字体图标">"
+                            let moreElement = this.objCreate("i")
+                            moreElement.classList.add("iconfont", "icon-bc-gengduo")
+                            this.ObjAppend(coinElement, moreElement)
+                            // 余额
+                            this["span"+ coin_upcase + old] = this.objCreate("span")
+                            this["span"+ coin_upcase + old].textContent = "0"
+                            this.ObjAppend(coinElement, this["span" + coin_upcase + old])
+                            // 点击事件
+                            coinElement.onclick = () => {
+                                this.doMakeRefundOld(old, coin_upcase)
+                            }
+                        })
+                    }
+                })
+            }
+               
+               */        
+             
+              
                }
 
 
-              // this["token_" + PayView.tokens[0]].classList.add("active")
+               this["token_" + PayView.tokens[0]].classList.add("active")
 
 
             
 
-             
-             
+                  
             
-        }    
+        }
+        
+       
         
         
     
@@ -228,6 +322,7 @@ namespace BlackCat {
         }
     }
 
+   
 
     private getDivNetSelectType(type: number) {
         var divObj = this.objCreate("div")
@@ -236,6 +331,16 @@ namespace BlackCat {
             Main.changeNetType(type)
         }
         return divObj;
+    }
+
+    private changeToken(type: string) {
+        let types = ['blact', 'neo', 'other']
+        for (let i = 0; i < types.length; i++) {
+            this["token_list_" + types[i]].style.display = "none"
+            this["token_" + types[i]].classList.remove("active")
+        }
+        this["token_list_" + type].style.display = "block"
+        this["token_" + type].classList.add("active")
     }
 
     private addGetWalletLists() {

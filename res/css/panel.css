@@ -410,7 +410,7 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_exc .pc_exmydetail.icon-bc-tongxunlu{float: right;}
 .pc_exc .pc_exaddrbook{font-size: 20px;color: #e7e7e7;border: 1px solid #666;padding: 2px 5px;border-radius: 3px;float: left;cursor: pointer;}
 .pc_exc .pc_exaddrbook.icon-bc-xiangqing{float: left;}
-.pc_cardexchangecon{color: #c8ab73;font-size: 20px;line-height: 1; position: absolute;top: 60px;left: 0;right: 0; margin:auto;text-align: left}
+.pc_cardexchangecon{color: #c8ab73;font-size: 20px;line-height: 1; position: absolute;top: 60px;left: 0;right: 0; margin:auto;text-align: center}
 .pc_exchangecardrefresh{position: absolute;left: 0;right: 0;top: 110px;text-align: left;cursor: pointer;}
 .pc_exchangecardrefresh span{cursor: pointer;font-size: 7px}
 .pc_cardexchangecon button{border: 1px solid #f3ce87;color:#f3ce87;margin-top: 15px; padding: 2px 0;width: 70px; border-radius: 3px;font-weight: bold}
@@ -454,6 +454,7 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_excurrency .pc_excurrencynumber button{width: auto;right: 20px;left: auto;padding: 1px 5px;}
 .pc_excurrency label{cursor: pointer;margin-left: 10px;color: #ff4242}
 .pc_excurrency label:hover .pc_coincon{display: block;}
+
 
 
 

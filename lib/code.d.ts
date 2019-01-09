@@ -2259,6 +2259,7 @@ declare namespace BlackCat {
         private getNetTypeName;
         private showChangeNetType;
         private getDivNetSelectType;
+        private changeToken;
         private addGetWalletLists;
     }
 }
@@ -2271,6 +2272,7 @@ declare namespace BlackCat {
         private reclistsDiv;
         private recgetMoreDiv;
         private s_getWalletLists;
+        static exTabs: Array<string>;
         wallet_addr: string;
         wallet_addr_other: any;
         bct: number;

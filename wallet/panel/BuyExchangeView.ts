@@ -17,7 +17,9 @@ namespace BlackCat {
         private recgetMoreDiv: HTMLDivElement;
 
         private s_getWalletLists = {};
+        
 
+        static exTabs: Array<string> = ["myasset", "buyin", "sellout", "tradelog"]
 
         wallet_addr: string
         wallet_addr_other: any
@@ -193,7 +195,7 @@ namespace BlackCat {
 
                 // 提现
                 var makeTransferObj = this.objCreate("button")
-                makeTransferObj.textContent = Main.langMgr.get("buy_exchange_pay_received") 
+                makeTransferObj.textContent = Main.langMgr.get("buy_exchange_pay_sent") 
                 makeTransferObj.onclick = () => {
                     this.doMakeTransfer()
                 }
@@ -332,7 +334,7 @@ namespace BlackCat {
             this.divListsMore = this.objCreate("button")
             this.divListsMore.classList.add("pc_paymore")
             this.divListsMore.textContent = BuyExchangeView.balance.toString() // "更多"
-            
+
             this.divListsMore.onclick = () => {
                 BuyExchangePurchaseView.refer = ""
                 BuyExchangePurchaseView.callback_params = BuyExchangeView.callback_params
@@ -397,7 +399,7 @@ namespace BlackCat {
             this.recgetMoreDiv.onclick = () => {
                 Main.viewMgr.payView.doGetWalletLists() // call from pay page
             }
-            this.ObjAppend(liRecentRecord, this.recgetMoreDiv)
+            this.ObjAppend(this.div, this.recgetMoreDiv)
 
             Main.viewMgr.payView.doGetWalletLists() 
             
