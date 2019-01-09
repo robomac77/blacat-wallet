@@ -595,7 +595,15 @@ namespace BlackCat {
             buy_exchange_pay_received:"收款",
             buy_exchange_pay_sent:"转账",
             buy_exchange_pay_balance:"ABC余额",
+            buy_exchange_pay_recent:"近期记录",
+            buy_exchange_pay_more:"更多",
 
+           
+            //BuyExchangePurchaseView
+            buy_exchange_purchase_myasset:"我的资产",
+            buy_exchange_purchase_buyin:"买入",
+            buy_exchange_purchase_sellout:"卖出",
+            buy_exchange_purchase_tradelog:"交易记录",
             
             // PayExchangeBcpDetail
             pay_exchange_bcp: "ゲットBCP",

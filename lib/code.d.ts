@@ -714,6 +714,12 @@ declare namespace BlackCat {
             buy_exchange_pay_received: string;
             buy_exchange_pay_sent: string;
             buy_exchange_pay_balance: string;
+            buy_exchange_pay_recent: string;
+            buy_exchange_pay_more: string;
+            buy_exchange_purchase_myasset: string;
+            buy_exchange_purchase_buyin: string;
+            buy_exchange_purchase_sellout: string;
+            buy_exchange_purchase_tradelog: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1339,6 +1345,12 @@ declare namespace BlackCat {
             buy_exchange_pay_received: string;
             buy_exchange_pay_sent: string;
             buy_exchange_pay_balance: string;
+            buy_exchange_pay_recent: string;
+            buy_exchange_pay_more: string;
+            buy_exchange_purchase_myasset: string;
+            buy_exchange_purchase_buyin: string;
+            buy_exchange_purchase_sellout: string;
+            buy_exchange_purchase_tradelog: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1964,6 +1976,12 @@ declare namespace BlackCat {
             buy_exchange_pay_received: string;
             buy_exchange_pay_sent: string;
             buy_exchange_pay_balance: string;
+            buy_exchange_pay_recent: string;
+            buy_exchange_pay_more: string;
+            buy_exchange_purchase_myasset: string;
+            buy_exchange_purchase_buyin: string;
+            buy_exchange_purchase_sellout: string;
+            buy_exchange_purchase_tradelog: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -2213,10 +2231,45 @@ declare namespace BlackCat {
     }
 }
 declare namespace BlackCat {
+    class BuyExchangePurchaseView extends ViewBase {
+        static balance: number;
+        private balanceElement;
+        private abcbalanceElement;
+        private recentElement;
+        private reclistsDiv;
+        private recgetMoreDiv;
+        private s_getWalletLists;
+        wallet_addr: string;
+        wallet_addr_other: any;
+        height_clis: number;
+        private divHeight_clis;
+        height_nodes: number;
+        private divHeight_nodes;
+        listPageNum: number;
+        private walletListsHash;
+        private divLists;
+        private divRecLists;
+        private divListsMore;
+        private divRecListsMore;
+        private divNetSelect;
+        create(): void;
+        toRefer(): void;
+        key_esc(): void;
+        private doCancel;
+        private getNetTypeName;
+        private showChangeNetType;
+        private getDivNetSelectType;
+        private addGetWalletLists;
+    }
+}
+declare namespace BlackCat {
     class BuyExchangeView extends ViewBase {
         static balance: number;
         private balanceElement;
         private abcbalanceElement;
+        private recentElement;
+        private reclistsDiv;
+        private recgetMoreDiv;
         private s_getWalletLists;
         wallet_addr: string;
         wallet_addr_other: any;
@@ -2235,7 +2288,9 @@ declare namespace BlackCat {
         listPageNum: number;
         private walletListsHash;
         private divLists;
+        private divRecLists;
         private divListsMore;
+        private divRecListsMore;
         private divNetSelect;
         create(): void;
         toRefer(): void;
@@ -2919,6 +2974,7 @@ declare namespace BlackCat {
         payTransferView: PayTransferView;
         payExchangeRefundView: PayExchangeRefundView;
         buyExchangeView: BuyExchangeView;
+        buyExchangePurchaseView: BuyExchangePurchaseView;
         addressbookView: AddressbookView;
         addressbookDetailsView: AddressbookDetailsView;
         addressbookOpView: AddressbookOpView;

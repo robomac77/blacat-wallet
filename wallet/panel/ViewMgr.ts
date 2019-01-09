@@ -50,6 +50,7 @@ namespace BlackCat {
         payExchangeRefundView: PayExchangeRefundView; // 退款
 
         buyExchangeView: BuyExchangeView; // 交易所
+        buyExchangePurchaseView: BuyExchangePurchaseView; //交易所买入
 
         addressbookView: AddressbookView; //通讯录
         addressbookDetailsView: AddressbookDetailsView; //通讯录详情
@@ -423,6 +424,14 @@ namespace BlackCat {
                     }
                     this.buyExchangeView.start()
                     break;    
+                case "BuyExchangePurchaseView" :
+                    console.log("[BlaCat]", '[ViewMgr]', '显示交易所买入(' + type + ') ...')
+                    if(!this.buyExchangePurchaseView) {
+                        this.buyExchangePurchaseView = new BuyExchangePurchaseView();
+                        this.views[type] = this.buyExchangePurchaseView
+                    }
+                    this.buyExchangePurchaseView.start()
+                    break;        
             }
         }
 

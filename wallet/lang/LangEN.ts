@@ -595,6 +595,17 @@ namespace BlackCat {
             buy_exchange_pay_received:"receive",
             buy_exchange_pay_sent:"send",
             buy_exchange_pay_balance:"ABC Balance",
+            buy_exchange_pay_recent:"Recent",
+            buy_exchange_pay_more:"More",
+
+
+            //BuyExchangePurchaseView
+            buy_exchange_purchase_myasset:"My Assets",
+            buy_exchange_purchase_buyin:"Buy In",
+            buy_exchange_purchase_sellout:"Sell Out",
+            buy_exchange_purchase_tradelog:"Trade Log",
+
+
 
             
             // PayExchangeBcpDetail

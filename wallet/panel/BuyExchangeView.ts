@@ -11,6 +11,11 @@ namespace BlackCat {
 
         private abcbalanceElement : HTMLElement
 
+        private recentElement: HTMLElement
+
+        private reclistsDiv: HTMLElement;
+        private recgetMoreDiv: HTMLDivElement;
+
         private s_getWalletLists = {};
 
 
@@ -44,7 +49,9 @@ namespace BlackCat {
 
 
         private divLists: HTMLDivElement;
+        private divRecLists: HTMLDivElement
         private divListsMore: HTMLElement;
+        private divRecListsMore: HTMLElement;
         private divNetSelect: HTMLElement;
 
 
@@ -325,10 +332,13 @@ namespace BlackCat {
             this.divListsMore = this.objCreate("button")
             this.divListsMore.classList.add("pc_paymore")
             this.divListsMore.textContent = BuyExchangeView.balance.toString() // "更多"
+            
             this.divListsMore.onclick = () => {
-                this.hidden()
-               // PayListMoreView.refer = "PayView"
-               // Main.viewMgr.change("PayListMoreView")
+                BuyExchangePurchaseView.refer = ""
+                BuyExchangePurchaseView.callback_params = BuyExchangeView.callback_params
+                BuyExchangePurchaseView.balance = BuyExchangeView.balance
+
+                Main.viewMgr.change("BuyExchangePurchaseView")
             }
             // this.divListsMore.style.display = "none"
             this.ObjAppend(liRecord, this.divListsMore)
@@ -341,14 +351,61 @@ namespace BlackCat {
             this.abcbalanceElement = this.objCreate("div")
             this.ObjAppend(this.divLists, this.abcbalanceElement)
 
-                
-           
-           
-            
-            
+
+
+
+           //近期记录
+            this.divRecLists = this.objCreate("ul") as HTMLDivElement
+            this.divRecLists.classList.add("pc_payRec")
+            this.ObjAppend(this.div, this.divRecLists)
+
+
+            var liRecentRecord = this.objCreate("li")
+            liRecentRecord.classList.add("pc_payRecentrecord")
+            // liRecentRecord.innerText = Main.langMgr.get("pay_recentLists") //"近期记录"
+            this.ObjAppend(this.divLists, liRecentRecord)
+
+            var spanRecentRecord = this.objCreate("div")
+            spanRecentRecord.innerText = Main.langMgr.get("buy_exchange_pay_recent") //"近期记录"
+            this.ObjAppend(liRecentRecord, spanRecentRecord)
 
            
+            this.divRecListsMore = this.objCreate("button")
+            this.divRecListsMore.classList.add("pc_paymore")
+            this.divRecListsMore.textContent = Main.langMgr.get("buy_exchange_pay_more") 
+            this.divRecListsMore.onclick = () => {
+                this.hidden()
+               // PayListMoreView.refer = "PayView"
+               // Main.viewMgr.change("PayListMoreView")
+            }
+            // this.divRecListsMore.style.display = "none"
+            this.ObjAppend(liRecentRecord, this.divRecListsMore)
+
+            var iRecListsMore = this.objCreate("i")
+            iRecListsMore.classList.add("iconfont", "icon-bc-sanjiaoxing")
+            this.ObjAppend(this.divRecListsMore, iRecListsMore)
+
+            
+            this.recentElement = this.objCreate("div")
+            this.ObjAppend(this.divRecListsMore, this.recentElement)
+            
+            this.reclistsDiv = this.objCreate("ul")
+            this.ObjAppend(liRecentRecord, this.reclistsDiv)
+
+            this.recgetMoreDiv = this.objCreate("div") as HTMLDivElement
+            this.recgetMoreDiv.classList.add("pc_reclistmore")
+            this.recgetMoreDiv.onclick = () => {
+                Main.viewMgr.payView.doGetWalletLists() // call from pay page
+            }
+            this.ObjAppend(liRecentRecord, this.recgetMoreDiv)
+
+            Main.viewMgr.payView.doGetWalletLists() 
+            
+                                     
            
+           
+           
+             
         }
 
         toRefer() {

@@ -417,10 +417,44 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_cardexchangecon button:active{background-color: #f3ce87;color: #5c544c;text-shadow: 0 0 0}
 .pc_cardexchangecon button:last-child{margin-left: 30px;}
 
-.pc_paylogs{ padding-bottom: 10px;}
-.pc_paylogs li{height: 65px;padding: 10px 0;margin: 0 20px; border-bottom: 1px solid #424453;position: relative; cursor: pointer;box-sizing: content-box;}
-.pc_paylogs  li:last-child{border-bottom: none}
-.pc_paylogs  .pc_listdate{font-size: 12px}
+.pc_payRec{ padding-bottom: 10px;}
+.pc_payRec li{height: 120px;padding: 10px 0;margin: 0 20px; border-bottom: 1px solid #424453;position: relative; cursor: pointer;box-sizing: content-box;}
+.pc_payRec  li:last-child{border-bottom: none}
+.pc_payRec  .pc_listdate{font-size: 12px}
+.pc_payRecentrecord div{color: #fff;padding-left: 15px;border-left: 3px solid #fff;display: inline;}
+.pc_reclistimg{width: 40px;height: 40px;float: left;border-radius:10px;overflow:hidden}
+.pc_recliftinfo{float: left;margin-left:10px;font-size: 14px;color: #a7a8ba;max-width: 43%;}
+.pc_reclistname,.pc_method{line-height: 1.5;overflow: hidden;text-overflow: ellipsis;white-space: nowrap}
+.pc_reccnts{float: right;font-size: 14px;text-align: right;line-height: 1}
+.pc_reccnts a{font-size: 28px;float: right;margin-left: 5px;position: relative;}
+.pc_reccnts .icon-bc-gou{color: #309368;}
+.pc_reccnts .icon-bc-chacha{color: #93304b;}
+
+.pc_reccnts .pc_recverification{width: 28px;height: 28px;position: relative;display: inline-block;margin-left: 5px;margin-top: -5px;font-size: 24px;color: #5676bc; line-height: 1}
+.pc_reccnts .icon-bc-jinhangzhong{color: #9c3b98}
+.pc_reccnts label{font-size: 10px !important;position: absolute;top: 23px;text-align: center;width: 33px;left: -1.5px;color: #a7a8ba}
+.pc_reccnts span{line-height: 2;position: absolute;top: 29px; right: 30px; width: 32%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.pc_reclistdate{color: #a7a8ba;font-size: 14px;line-height: 1.5;position: relative;}
+
+.pc_recincome{color: #c8ab73}
+.pc_recincome span::before{content: "+"}
+.pc_recexpenditure{color: #a7a8ba}
+.pc_recexpenditure span::before{content: "-"}
+.pc_reclistmore{text-align: center;color: #fff;cursor: pointer;margin: 10px auto 30px;padding: 10px 0; clear:both;}
+.pc_recverification.icon-bc-dengdai::before{-webkit-animation: pc_turn 1.5s infinite ;animation: pc_turn 1.5s infinite ;display: inline-block}
+
+
+/*钱包交易所买入 */
+.pc_pageselect{position: relative;width:85%;height: 50px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
+.pc_excurrency>div{line-height: 40px;color: #a7a8ba;cursor: pointer;}
+.pc_excurrency .pc_excurrencynumber{color: #dbdde9;border: none;margin-bottom: 10px;padding: 0 20px;}
+.pc_excurrency .pc_excurrencynumber div{color: #9a9fbf;display: inline;margin-right: 15px;padding-bottom: 5px;font-size: 16px;cursor: pointer;}
+.pc_expayrecord div{color: #fff;padding-left: 15px;border-left: 3px solid #fff;display: inline;}
+.pc_excurrencynumber .active{color: #dbdde9 !important;border-bottom: 1px solid #bca172;}
+.pc_excurrency .pc_excurrencynumber button{width: auto;right: 20px;left: auto;padding: 1px 5px;}
+.pc_excurrency label{cursor: pointer;margin-left: 10px;color: #ff4242}
+.pc_excurrency label:hover .pc_coincon{display: block;}
+
 
 
 
