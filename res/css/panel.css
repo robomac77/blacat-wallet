@@ -443,6 +443,45 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_reclistmore{text-align: center;color: #fff;cursor: pointer;margin: 10px auto 30px;padding: 10px 0; clear:both;}
 .pc_recverification.icon-bc-dengdai::before{-webkit-animation: pc_turn 1.5s infinite ;animation: pc_turn 1.5s infinite ;display: inline-block}
 
+ /*交易所 - 我的资产*/
+ .pc_assetsearch{padding:35px 20px 20px;margin-bottom:5px;color: #606174}
+ .pc_assetsearch input{width: 90%;height: 35px;padding-left: 12%; background-color: #2b2c39;color: #606174}
+ .pc_assetsearch i{position: absolute;margin: 9px 0 0 15px;}
+ .pc_assetsearch .espan{float: right; position: right;margin-bottom: 10px;color: #fcf9f9 ;font-size:5px}
+ 
+ .pc_assetlist{margin-bottom: 15px;}
+ .pc_assetlist .assetspan{float: left;width: 20px;position: relative;top: 10px;margin-right: 5px}
+ .pc_assetlist div{padding: 0 20px;border-bottom: 1px solid #181717;}
+ .pc_assetlist div:hover{background: #272836;}
+ 
+ /* 交易所 - 交易记录 */
+
+.pc_txlist ul{margin-top: 45px;}
+.pc_txlist li{height: 40px;padding: 10px 0; border-bottom: 1px solid #424453;margin: 0 20px;position: relative; cursor: pointer;box-sizing: content-box;}
+.pc_txlist li.active{box-shadow: 0 0 10px #000;margin: auto;padding: 10px 20px;}
+.pc_txlist li.active .pc_cnts span{right: 49px;}
+li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;cursor: auto;height: 30px;}
+.pc_liststate{width: 60px;height: 40px;float: left;border-radius:10px;overflow:hidden;color: #059144}
+.pc_txinfo{float: left;margin-left:10px;font-size: 14px;color: #a7a8ba;max-width: 43%;}
+.pc_txname,.pc_date{line-height: 1.5;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: bold}
+.pc_amounts{float: right;font-size: 14px;text-align: right;line-height: 1;color: #f3ce87}
+.pc_amounts a{font-size: 28px;float: right;margin-left: 5px;position: relative;}
+.pc_amounts .icon-bc-gou{color: #309368;}
+.pc_amounts .icon-bc-chacha{color: #93304b;}
+
+.pc_amounts .pc_verification{width: 28px;height: 28px;position: relative;display: inline-block;margin-left: 5px;margin-top: -5px;font-size: 24px;color: #5676bc; line-height: 1}
+.pc_amounts .icon-bc-jinhangzhong{color: #9c3b98}
+.pc_amounts label{font-size: 10px !important;position: absolute;top: 23px;text-align: center;width: 33px;left: -1.5px;color: #a7a8ba}
+.pc_amounts span{line-height: 2;position: absolute;top: 29px; right: 30px; width: 32%;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.pc_txdate{color: #a7a8ba;font-size: 14px;line-height: 1.5;position: relative;font-weight: bold}
+
+.pc_income{color: #c8ab73}
+.pc_income span::before{content: "+"}
+.pc_expenditure{color: #a7a8ba}
+.pc_expenditure span::before{content: "-"}
+.pc_txmore{text-align: center;color: #fff;cursor: pointer;margin: 10px auto 30px;padding: 10px 0; clear:both;}
+.pc_verification.icon-bc-dengdai::before{-webkit-animation: pc_turn 1.5s infinite ;animation: pc_turn 1.5s infinite ;display: inline-block}
+
 
 /*钱包交易所买入 */
 .pc_pageselect{position: relative;width:85%;height: 50px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
@@ -454,9 +493,39 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_excurrency .pc_excurrencynumber button{width: auto;right: 20px;left: auto;padding: 1px 5px;}
 .pc_excurrency label{cursor: pointer;margin-left: 10px;color: #ff4242}
 .pc_excurrency label:hover .pc_coincon{display: block;}
+.pc_tablist{margin-bottom: 15px;}
+.pc_tablist .coinlogo{float: left;width: 20px;position: relative;top: 10px;margin-right: 5px}
+.pc_tablist div{padding: 0 20px;border-bottom: 1px solid #3a3c4a;}
+.pc_tablist div:hover{background: #272836;}
 
 
+.pc_exleftpane{float:left; width:60%; height: 400px ; padding:50px 10px 10px;color: #606174; box-sizing:border-box }
+.pc_exleftpane .selecttoken{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174}
+.pc_exleftpane .daygraph{width: 80%;height: 100px;padding-left: 12%; margin-bottom:10px;background-color: #2b2c39;color: #606174}
+.pc_exleftpane .pricebar{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174}
+.pc_exleftpane .input{width: 85%;height: 35px;padding-left: 12%; position: center; background-color: #2b2c39;color: #606174}
+.pc_exleftpane .amountbar{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174}
+.pc_exleftpane .countbar{width: 80%;height: 35px;padding-left: 12%; margin-bottom:5px; background-color: #2b2c39;color: #606174}
+.pc_exleftpane .buybutton{width:90%;border: 1px solid #f3ce87;color:#f3ce87;margin-top: 15px; padding: 2px 0; height: 35px; border-radius: 3px;font-weight: bold}
+.pc_exleftpane .count{width: 85%;height: 35px;padding-right: 12%; background-color: #2b2c39;color: #606174}
 
+
+.pc_exrightpane{float:right; width:40%; height: 400px ; padding:50px 10px 10px;color: #606174; box-sizing:border-box }
+.pc_exrightpane .titlebar{width: 85%;height: 35px;padding-left: 12%; background-color: #202020;color: #111111}
+.pc_exrightpane .priceamount{width: 85%;height: 310px;padding-left: 12%; background-color: #2b2c39;color: #2b2c39}
+.priceamount .price{float:left;font-size: 5px;color: #606174}
+.priceamount .amount{float:right; position: absolute; font-size: 5px}
+
+
+/*钱包交易所-存入*/
+
+.pc_exchangebalance{position: center;width: 90%;height: 20px;padding:5px 10px 5px ;margin:10px 10px 5px; background-color: #2b2c39;color: #606174}
+.pc_exchangebalance .span{margin-left: 10px;color: #525050 ;font-size:5px}
+.pc_exchangebalance .centerlabel{position: center;color: #525050 ;font-size:5px}
+.pc_exchangebalance .rightlabel{margin-right: 10px;color: #525050 ;font-size:5px}
+.pc_exchangebalance .countbar{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174}
+.pc_exchangebalance .input{width: 85%;height: 35px; position: center; margin-bottom:10px; background-color: #2b2c39;color: #606174}
+.pc_exchangebalance .depositbutton{width:90%;border: 1px solid #f3ce87;color:#f3ce87;margin-top: 15px; padding: 2px 0; height: 35px; border-radius: 3px;font-weight: bold}
 
 
 

@@ -2252,6 +2252,8 @@ declare namespace BlackCat {
         private divListsMore;
         private divRecListsMore;
         private divNetSelect;
+        static tokens_coin: Array<Array<string>>;
+        static tokens_old: Object;
         create(): void;
         toRefer(): void;
         key_esc(): void;

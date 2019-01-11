@@ -174,14 +174,14 @@ namespace BlackCat {
                 this.ObjAppend(divexTab, this["token_" + token])
 
     
-                  
-               /* 
-                  
-                 // 数字币种list，默认不显示
+                 
                 this["token_list_" + token] = this.objCreate("div")
-                this["token_list_" + token].classList.add("pc_currencylist")
+                this["token_list_" + token].classList.add("pc_tablist")
                 this["token_list_" + token].style.display = "none"
-                this.ObjAppend(divexTab, this["token_list_" + token])
+                this.ObjAppend(divexPages, this["token_list_" + token])
+
+
+                
 
                 // 数字币种具体
                 for (let k = 0; k < PayView.tokens_coin[i].length; k++) {
@@ -191,6 +191,8 @@ namespace BlackCat {
                     // 名称
                     coinElement.innerHTML = Main.langMgr.get(coin)
                     this.ObjAppend(this["token_list_" + token], coinElement)
+                
+                   
                     // LOGO
                     let logoElement = this.objCreate("img") as HTMLImageElement
                     logoElement.src = Main.resHost + "res/img/" + coin + ".png"
@@ -211,6 +213,8 @@ namespace BlackCat {
                     else {
                         labelElement.style.display = "none"
                     }
+                }
+                    /*
                     // 字体图标">"
                     let moreElement = this.objCreate("i")
                     moreElement.classList.add("iconfont", "icon-bc-gengduo")
