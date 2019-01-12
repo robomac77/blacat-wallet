@@ -490,7 +490,7 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_excurrency .pc_excurrencynumber div{color: #9a9fbf;display: inline;margin-right: 15px;padding-bottom: 5px;font-size: 16px;cursor: pointer;}
 
 
-.pc_exchangetab{width: 90%;height: 500px; display: block;margin:15px auto;}
+.pc_exchangetab{width: 90%;height: 550px; display: block;margin:15px auto;}
 
 .pc_expayrecord div{color: #fff;padding-left: 15px;border-left: 3px solid #fff;display: inline;}
 .pc_excurrencynumber .active{color: #dbdde9 !important;border-bottom: 1px solid #bca172;}

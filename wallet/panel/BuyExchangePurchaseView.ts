@@ -18,6 +18,10 @@ namespace BlackCat {
 
         private inputPrice: HTMLInputElement
         private inputAmount:HTMLInputElement;
+        private inputassetSearch:HTMLInputElement
+
+        private buyPriceTable:HTMLTableElement;
+        private sellPriceTable:HTMLTableElement;
 
         private selectGas: HTMLSelectElement;
 
@@ -45,6 +49,16 @@ namespace BlackCat {
         private divListsMore: HTMLElement;
         private divRecListsMore: HTMLElement;
         private divNetSelect: HTMLElement;
+
+        private assettabDiv;
+        private buyintabDiv;
+
+
+        start() {
+            super.start()
+             
+             this.assettabDiv.hidden()
+        }
 
 
         create() {
@@ -141,13 +155,21 @@ namespace BlackCat {
             this.ObjAppend(divexPages, divexTab)
 
             var myAssetspan = this.objCreate("div")
-            myAssetspan.classList.add("active")
             myAssetspan.textContent = "我的资产"
+            myAssetspan.onclick = () => {
+                myAssetspan.classList.add("active")
+                this.buyintabDiv.remove()
+                //this.buyintabDiv.style.display = 'hidden'
+                //this.assettabDiv.display()
+                
+             }
             this.ObjAppend(divexTab,myAssetspan)
 
             var buyInspan = this.objCreate("div")
+            buyInspan.classList.add("active")
             buyInspan.textContent = "买入"
             this.ObjAppend(divexTab,buyInspan)
+            
 
             var sellOutspan = this.objCreate("div")
             sellOutspan.textContent = "卖出"
@@ -157,16 +179,16 @@ namespace BlackCat {
             tradeLogspan.textContent = "交易记录"
             this.ObjAppend(divexTab,tradeLogspan)
 
-            var tabDiv = this.objCreate("div") 
-            tabDiv.classList.add("pc_exchangetab")
-            this.ObjAppend(this.div,tabDiv)
+            this.buyintabDiv = this.objCreate("div") 
+            this.buyintabDiv.classList.add("pc_exchangetab")
+            this.ObjAppend(this.div,this.buyintabDiv)
            
 
             
 
              var divSelectBox = this.objCreate("div")
             divSelectBox.classList.add("pc_exleftpane")
-            this.ObjAppend(tabDiv,divSelectBox)
+            this.ObjAppend(this.buyintabDiv,divSelectBox)
 
             var divSelectToken = this.objCreate("div")
             divSelectToken.classList.add("selecttoken")  
@@ -242,7 +264,7 @@ namespace BlackCat {
 
             var divRightPane = this.objCreate("div")
             divRightPane.classList.add("pc_exrightpane")
-            this.ObjAppend(tabDiv,divRightPane)
+            this.ObjAppend(this.buyintabDiv,divRightPane)
    
             var divTitleBar = this.objCreate("div")
              divTitleBar.classList.add("titlebar")
@@ -253,9 +275,14 @@ namespace BlackCat {
              divBuyTable.classList.add("pc_buytable")
             this.ObjAppend(divRightPane,divBuyTable)
 
+            //TODO: buy price amount table here
+
+
             var divSellTable = this.objCreate("div")
             divSellTable.classList.add("pc_selltable")
            this.ObjAppend(divRightPane,divSellTable)
+
+           //TODO: sell price amount table here
 
 
 
@@ -269,20 +296,101 @@ namespace BlackCat {
             // divAmountTitle.textContent = Main.langMgr.get("buy_exchange_purchase_amount") 
           //  this.ObjAppend(divTitleBar,divAmountTitle)
 
+            this.assettabDiv = this.objCreate("div") 
+            this.assettabDiv.classList.add("pc_exchangetab")
+            this.ObjAppend(this.div,this.assettabDiv)
+
             
-
-
-            
-
-
  
+              //SearchBar
+            var divassetSearch = this.objCreate("div")
+            divassetSearch.classList.add("pc_assetsearch")
+            this.ObjAppend(this.assettabDiv, divassetSearch)
+
+            var iassetSearch = this.objCreate("i")
+            iassetSearch.classList.add("iconfont", "icon-bc-sousuo")
+            this.ObjAppend(divassetSearch, iassetSearch)
+
+            //搜索input
+            this.inputassetSearch = this.objCreate("input") as HTMLInputElement
+            this.inputassetSearch.placeholder = Main.langMgr.get("buy_exchange_purchase_assetsearch") // "搜索"
+            this.inputassetSearch.onkeyup = () => {
+               // this.searchAddressbook()
+            }
+            this.ObjAppend(divassetSearch, this.inputassetSearch)  
+
+            var tokenSpan = this.objCreate("span");
+            this.ObjAppend(this.div, tokenSpan);
+            tokenSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_tokentype");
+
+            var exBalanceSpan = this.objCreate("span");
+            this.ObjAppend(this.div, exBalanceSpan);
+            exBalanceSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_exchangetitle");
+
+
+            var walletBalanceSpan = this.objCreate("span");
+            this.ObjAppend(this.div, walletBalanceSpan);
+            walletBalanceSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_wallettitle");
+
+
+            var divAssetList = this.objCreate("div")
+            divAssetList.classList.add("pc_assetlist")
+           // divAssetList.style.display = "none"
+            this.ObjAppend(this.div, divAssetList)
+
+
+
+            // 数字币种具体
+            for (let i = 0; i < PayView.tokens.length; i++) {
+                let coin = PayView.tokens[i]
+
+
+
+                let assetElement = this.objCreate("div")
+                // 名称
+                assetElement.innerHTML = Main.langMgr.get(coin)
+                this.ObjAppend(divAssetList, assetElement)
+
+                var assetBalance = this.objCreate("span")
+                assetBalance.textContent = "0"
+                this.ObjAppend(assetElement, assetBalance)
+
+                var walletBalance = this.objCreate("span")
+                walletBalance.textContent = "0"
+                this.ObjAppend(assetElement, walletBalance)
+              
+                // 字体图标">"
+                let moreElement = this.objCreate("i")
+                moreElement.classList.add("iconfont", "icon-bc-gengduo")
+                this.ObjAppend(assetElement, moreElement)
+
+
+                // 余额
+               
+                // 点击事件
+                assetElement.onclick = () => {
+                   // this["doExchange" + coin.toUpperCase()]()
+
+                }
+                
+                
+            }  
+            
+
+         
+
+
+            
+
 
 
             
 
                   
+
+                  
             
-        }
+ }
         
        
         

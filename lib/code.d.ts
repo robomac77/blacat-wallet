@@ -2285,6 +2285,9 @@ declare namespace BlackCat {
         private recgetMoreDiv;
         private inputPrice;
         private inputAmount;
+        private inputassetSearch;
+        private buyPriceTable;
+        private sellPriceTable;
         private selectGas;
         private s_getWalletLists;
         wallet_addr: string;
@@ -2300,6 +2303,9 @@ declare namespace BlackCat {
         private divListsMore;
         private divRecListsMore;
         private divNetSelect;
+        private assettabDiv;
+        private buyintabDiv;
+        start(): void;
         create(): void;
         toRefer(): void;
         key_esc(): void;
