@@ -607,7 +607,7 @@ namespace BlackCat {
             buy_exchange_purchase_selecttoken:"Select Token",
             buy_exchange_purchase_inputpriceplaceholder:"Input Price",
             buy_exchange_purchase_inputamountplaceholder:"Input Amount",
-            buy_exchange_purchase_price:"price",
+            buy_exchange_purchase_price:"price     amount",
             buy_exchange_purchase_amount:"amount",
             buy_exchange_purchase_exchangebalance:"Exchange Balance",
             buy_exchange_purchase_walletbalance:"Wallet Balance",

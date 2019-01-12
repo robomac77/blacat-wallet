@@ -484,10 +484,14 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 
 
 /*钱包交易所买入 */
-.pc_pageselect{position: relative;width:85%;height: 50px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
+.pc_pageselect{position: relative;width:85%;height: 10px;padding: 28px;margin:20px auto;border-radius: 5px;color: #fff}
 .pc_excurrency>div{line-height: 40px;color: #a7a8ba;cursor: pointer;}
 .pc_excurrency .pc_excurrencynumber{color: #dbdde9;border: none;margin-bottom: 10px;padding: 0 20px;}
 .pc_excurrency .pc_excurrencynumber div{color: #9a9fbf;display: inline;margin-right: 15px;padding-bottom: 5px;font-size: 16px;cursor: pointer;}
+
+
+.pc_exchangetab{width: 90%;height: 500px; display: block;margin:15px auto;}
+
 .pc_expayrecord div{color: #fff;padding-left: 15px;border-left: 3px solid #fff;display: inline;}
 .pc_excurrencynumber .active{color: #dbdde9 !important;border-bottom: 1px solid #bca172;}
 .pc_excurrency .pc_excurrencynumber button{width: auto;right: 20px;left: auto;padding: 1px 5px;}
@@ -513,7 +517,11 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 .pc_exrightpane{float:right; width:40%; height: 400px ; padding:50px 10px 10px;color: #606174; box-sizing:border-box }
 .pc_exrightpane .titlebar{width: 85%;height: 35px;padding-left: 12%; background-color: #202020;color: #111111}
 .pc_exrightpane .priceamount{width: 85%;height: 310px;padding-left: 12%; background-color: #2b2c39;color: #2b2c39}
-.priceamount .price{float:left;font-size: 5px;color: #606174}
+.pc_exrightpane .pc_buytable{width: 85%;height: 155px;padding-left: 12%; background-color: #2b2c39;color: #2b2c39}
+.pc_exrightpane .pc_selltable{width: 85%;height: 155px;padding-left: 12%; background-color: #2b2c39;color: #2b2c39}
+
+
+.priceamount .price{float:left;font-size: 2px;color: #606174}
 .priceamount .amount{float:right; position: absolute; font-size: 5px}
 
 

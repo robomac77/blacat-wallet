@@ -607,7 +607,7 @@ namespace BlackCat {
             buy_exchange_purchase_selecttoken:"选择交易代币",
             buy_exchange_purchase_inputpriceplaceholder:"输入价格",
             buy_exchange_purchase_inputamountplaceholder:"输入数量",
-            buy_exchange_purchase_price:"价格",
+            buy_exchange_purchase_price:"价格     数量",
             buy_exchange_purchase_amount:"数量",
             buy_exchange_purchase_exchangebalance:"交易所余额",
             buy_exchange_purchase_walletbalance:"钱包余额",

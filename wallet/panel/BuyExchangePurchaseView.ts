@@ -16,6 +16,11 @@ namespace BlackCat {
         private reclistsDiv: HTMLElement;
         private recgetMoreDiv: HTMLDivElement;
 
+        private inputPrice: HTMLInputElement
+        private inputAmount:HTMLInputElement;
+
+        private selectGas: HTMLSelectElement;
+
         private s_getWalletLists = {};
 
 
@@ -40,21 +45,6 @@ namespace BlackCat {
         private divListsMore: HTMLElement;
         private divRecListsMore: HTMLElement;
         private divNetSelect: HTMLElement;
-
-
-
-        static tokens_coin: Array<Array<string>> = [
-            ["bct", "bcp"],
-            ["gas", "cgas", "neo", "cneo"],
-            ["btc", "eth"],
-        ]
-        // === 老币种
-        static tokens_old: Object = {
-            neo: ["cgas", "cneo"],
-        }
-
-
-
 
 
         create() {
@@ -150,137 +140,142 @@ namespace BlackCat {
             divexTab.classList.add("pc_excurrencynumber")
             this.ObjAppend(divexPages, divexTab)
 
-            /*for (let i = 0; i < BuyExchangeView.exTabs.length; i++) {
-                    let tab = BuyExchangeView.exTabs[i]
-    
-                    // 导航栏
-                    this["token_" + tab] = this.objCreate("div")
-                    this["token_" + tab].innerText = Main.langMgr.get("pay_coin_" + tab)
-                    this["token_" + tab].onclick = () => {
-                        this.changeToken(tab);
-                    }
-                    this.ObjAppend(divexTab, this["token_" + tab])*/
-             
+            var myAssetspan = this.objCreate("div")
+            myAssetspan.classList.add("active")
+            myAssetspan.textContent = "我的资产"
+            this.ObjAppend(divexTab,myAssetspan)
 
-            for (let i = 0; i < PayView.tokens.length; i++) {
-                let token = PayView.tokens[i]
+            var buyInspan = this.objCreate("div")
+            buyInspan.textContent = "买入"
+            this.ObjAppend(divexTab,buyInspan)
 
-                
-                this["token_" + token] = this.objCreate("div")
-                this["token_" + token].innerText = Main.langMgr.get("pay_coin_" + token)
-                this["token_" + token].onclick = () => {
-                    this.changeToken(token);
-                }
-                this.ObjAppend(divexTab, this["token_" + token])
+            var sellOutspan = this.objCreate("div")
+            sellOutspan.textContent = "卖出"
+            this.ObjAppend(divexTab,sellOutspan)
 
-    
-                 
-                this["token_list_" + token] = this.objCreate("div")
-                this["token_list_" + token].classList.add("pc_tablist")
-                this["token_list_" + token].style.display = "none"
-                this.ObjAppend(divexPages, this["token_list_" + token])
+            var tradeLogspan = this.objCreate("div")
+            tradeLogspan.textContent = "交易记录"
+            this.ObjAppend(divexTab,tradeLogspan)
 
+            var tabDiv = this.objCreate("div") 
+            tabDiv.classList.add("pc_exchangetab")
+            this.ObjAppend(this.div,tabDiv)
+           
 
-                
+            
 
-                // 数字币种具体
-                for (let k = 0; k < PayView.tokens_coin[i].length; k++) {
-                    let coin = PayView.tokens_coin[i][k]
+             var divSelectBox = this.objCreate("div")
+            divSelectBox.classList.add("pc_exleftpane")
+            this.ObjAppend(tabDiv,divSelectBox)
 
-                    let coinElement = this.objCreate("div")
-                    // 名称
-                    coinElement.innerHTML = Main.langMgr.get(coin)
-                    this.ObjAppend(this["token_list_" + token], coinElement)
-                
-                   
-                    // LOGO
-                    let logoElement = this.objCreate("img") as HTMLImageElement
-                    logoElement.src = Main.resHost + "res/img/" + coin + ".png"
-                    logoElement.classList.add("coinlogo")
-                    this.ObjAppend(coinElement, logoElement)
-                    // ?号
-                    let labelElement = this.objCreate("label")
-                    labelElement.classList.add("iconfont", "icon-bc-help")
-                    this.ObjAppend(coinElement, labelElement)
-                    let descText = Main.langMgr.get("pay_" + coin + "_desc")
-                    if (descText != "") {
-                        // ?描述
-                        let descElement = this.objCreate("div")
-                        descElement.classList.add("pc_coincon")
-                        descElement.textContent = Main.langMgr.get("pay_" + coin + "_desc")
-                        this.ObjAppend(labelElement, descElement)
-                    }
-                    else {
-                        labelElement.style.display = "none"
-                    }
-                }
-                    /*
-                    // 字体图标">"
-                    let moreElement = this.objCreate("i")
-                    moreElement.classList.add("iconfont", "icon-bc-gengduo")
-                    this.ObjAppend(coinElement, moreElement)
-                    // 余额
-                    this["span" + coin.toUpperCase()] = this.objCreate("span")
-                    this["span" + coin.toUpperCase()].textContent = "0"
-                    this.ObjAppend(coinElement, this["span" + coin.toUpperCase()])
-                    // 点击事件
-                    coinElement.onclick = () => {
-                        this["doExchange" + coin.toUpperCase()]()
-                    }
-                }
+            var divSelectToken = this.objCreate("div")
+            divSelectToken.classList.add("selecttoken")  
+            divSelectToken.innerText = Main.langMgr.get("buy_exchange_purchase_selecttoken") 
+            this.ObjAppend(divSelectBox,divSelectToken)
+
+            var divDayGraph = this.objCreate("div")
+            divDayGraph.classList.add("daygraph")
+            this.ObjAppend(divSelectBox,divDayGraph)
+
+            var divPriceBar = this.objCreate("div")
+            divPriceBar.classList.add("pricebar")
+            this.ObjAppend(divSelectBox,divPriceBar)
+
+            this.inputPrice = this.objCreate("input") as HTMLInputElement
+            this.inputPrice.placeholder = Main.langMgr.get("buy_exchange_purchase_inputpriceplaceholder") 
+            this.inputPrice.onkeyup = () => {
+                //this.searchAddressbook()
             }
-            // 显示第一组代币
-            this["token_" + PayView.tokens[0]].classList.add("active")
-            this["token_list_" + PayView.tokens[0]].style.display = ""
+            this.ObjAppend(divPriceBar, this.inputPrice)
 
-            // cgas_old/cneo_old信息
-            for (let token in PayView.tokens_old) {
-                PayView.tokens_old[token].forEach((coin) => {
-                    let coin_upcase = coin.toUpperCase() + "_OLD"
-                    if (tools.CoinTool["id_" + coin_upcase].length > 0) {
-                        tools.CoinTool["id_" + coin_upcase].forEach((old) => {
-                            let coinElement = this.objCreate("div")
-                            // 名称
-                            coinElement.innerHTML = Main.langMgr.get("pay_" + coin)
-                            this.ObjAppend(this["token_list_" + token], coinElement)
-                            // LOGO
-                            let logoElement = this.objCreate("img") as HTMLImageElement
-                            logoElement.src = Main.resHost + "res/img/old" + coin + ".png"
-                            logoElement.classList.add("coinlogo")
-                            this.ObjAppend(coinElement, logoElement)
-                            // ?号
-                            let labelElement = this.objCreate("label")
-                            labelElement.classList.add("iconfont", "icon-bc-help")
-                            this.ObjAppend(coinElement, labelElement)
-                            // ?描述
-                            let descElement = this.objCreate("div")
-                            descElement.classList.add("pc_coincon")
-                            descElement.textContent = old
-                            this.ObjAppend(labelElement, descElement)
-                            // 字体图标">"
-                            let moreElement = this.objCreate("i")
-                            moreElement.classList.add("iconfont", "icon-bc-gengduo")
-                            this.ObjAppend(coinElement, moreElement)
-                            // 余额
-                            this["span"+ coin_upcase + old] = this.objCreate("span")
-                            this["span"+ coin_upcase + old].textContent = "0"
-                            this.ObjAppend(coinElement, this["span" + coin_upcase + old])
-                            // 点击事件
-                            coinElement.onclick = () => {
-                                this.doMakeRefundOld(old, coin_upcase)
-                            }
-                        })
-                    }
-                })
+            var divAmountBar = this.objCreate("div")
+            divAmountBar.classList.add("amountbar")
+            this.ObjAppend(divSelectBox,divAmountBar)
+
+            this.inputAmount = this.objCreate("input") as HTMLInputElement
+            this.inputAmount.placeholder = Main.langMgr.get("buy_exchange_purchase_inputamountplaceholder") 
+            this.inputAmount.onkeyup = () => {
+                //this.searchAddressbook()
             }
-               
-               */        
-             
-              
-               }
+            this.ObjAppend(divAmountBar, this.inputAmount)
+
+            var divCountBar = this.objCreate("div")
+            divCountBar.classList.add("countbar")
+            this.ObjAppend(divSelectBox,divCountBar)
+
+           /*
+            this.selectGas = this.objCreate("select") as HTMLSelectElement
+            var gasAmount = AreaView.getAreaByLang(Main.langMgr.type)
+              gasAmount.forEach(
+                gas => {
+                    var gasoption = this.objCreate("option") as HTMLOptionElement;
+                    option.setAttribute("value", area.codename);
+                    option.textContent = Main.langMgr.get("gas_amount_" + area.codename)
+                    if (area.codename == "CN") {
+                        option.setAttribute("selected", "selected")
+                    }
+                    this.selectGas.options.add(option)
+
+                }
+            )
+            this.selectGas.onchange = () => {
+                gasAmount.forEach(
+                    gas => {
+                        if (area.codename == this.selectArea.value) {
+                            this.divArea.textContent = area.areacode
+                        }
+                    }
+                )
+            }
+            this.ObjAppend(areaSelect, this.selectArea)
+           */
 
 
-               this["token_" + PayView.tokens[0]].classList.add("active")
+            var butBuyIn = this.objCreate("button")
+            butBuyIn.classList.add("buybutton")
+            butBuyIn.textContent = Main.langMgr.get("buy_exchange_purchase_buyin") 
+            butBuyIn.onclick = () => {
+               // this.doMakeReceivables()
+            }
+            this.ObjAppend(divSelectBox, butBuyIn)
+
+
+            var divRightPane = this.objCreate("div")
+            divRightPane.classList.add("pc_exrightpane")
+            this.ObjAppend(tabDiv,divRightPane)
+   
+            var divTitleBar = this.objCreate("div")
+             divTitleBar.classList.add("titlebar")
+            this.ObjAppend(divRightPane,divTitleBar)
+
+
+            var divBuyTable = this.objCreate("div")
+             divBuyTable.classList.add("pc_buytable")
+            this.ObjAppend(divRightPane,divBuyTable)
+
+            var divSellTable = this.objCreate("div")
+            divSellTable.classList.add("pc_selltable")
+           this.ObjAppend(divRightPane,divSellTable)
+
+
+
+            var divPriceTitle = this.objCreate("div")
+             divPriceTitle.classList.add("price")
+             divPriceTitle.textContent = Main.langMgr.get("buy_exchange_purchase_price") 
+            this.ObjAppend(divTitleBar,divPriceTitle)
+
+           // var divAmountTitle = this.objCreate("span")
+            // divAmountTitle.classList.add("amount")
+            // divAmountTitle.textContent = Main.langMgr.get("buy_exchange_purchase_amount") 
+          //  this.ObjAppend(divTitleBar,divAmountTitle)
+
+            
+
+
+            
+
+
+ 
 
 
             
