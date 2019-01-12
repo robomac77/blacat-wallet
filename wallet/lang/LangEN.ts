@@ -604,6 +604,22 @@ namespace BlackCat {
             buy_exchange_purchase_buyin:"Buy In",
             buy_exchange_purchase_sellout:"Sell Out",
             buy_exchange_purchase_tradelog:"Trade Log",
+            buy_exchange_purchase_selecttoken:"Select Token",
+            buy_exchange_purchase_inputpriceplaceholder:"Input Price",
+            buy_exchange_purchase_inputamountplaceholder:"Input Amount",
+            buy_exchange_purchase_price:"price",
+            buy_exchange_purchase_amount:"amount",
+            buy_exchange_purchase_exchangebalance:"Exchange Balance",
+            buy_exchange_purchase_walletbalance:"Wallet Balance",
+            buy_exchange_purchase_depositamount:"Please Input Deposit Amount",
+            buy_exchange_purchase_gas:"Gas Fee 5.5GAS",
+            buy_exchange_purchase_confirmdeposit:"Confirm Deposit",
+            buy_exchange_purchase_assetsearch:"Search Token",
+            buy_exchange_purchase_tokentype:"Token Type",
+            buy_exchange_purchase_exchangetitle:"Exchange Balance",
+            buy_exchange_purchase_wallettitle:"Wallet Balance",
+            buy_exchange_purchase_buyunconfirmed:"In Process",
+            
 
 
 

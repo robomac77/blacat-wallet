@@ -18,6 +18,10 @@ namespace BlackCat {
 
         private s_getWalletLists = {};
         
+        private page: number;
+        private num: number;
+
+        private isLast: boolean;
 
         static exTabs: Array<string> = ["myasset", "buyin", "sellout", "tradelog"]
 
@@ -377,8 +381,8 @@ namespace BlackCat {
             this.divRecListsMore.textContent = Main.langMgr.get("buy_exchange_pay_more") 
             this.divRecListsMore.onclick = () => {
                 this.hidden()
-               // PayListMoreView.refer = "PayView"
-               // Main.viewMgr.change("PayListMoreView")
+
+                this.doGetWalletLists()
             }
             // this.divRecListsMore.style.display = "none"
             this.ObjAppend(liRecentRecord, this.divRecListsMore)
@@ -395,7 +399,7 @@ namespace BlackCat {
             this.ObjAppend(liRecentRecord, this.reclistsDiv)
 
             this.recgetMoreDiv = this.objCreate("div") as HTMLDivElement
-            this.recgetMoreDiv.classList.add("pc_reclistmore")
+            this.recgetMoreDiv.classList.add("pc_gamemore")
             this.recgetMoreDiv.onclick = () => {
                 Main.viewMgr.payView.doGetWalletLists() // call from pay page
             }
@@ -856,6 +860,131 @@ namespace BlackCat {
                 Main.viewMgr.payView.doGetWalletLists()
             }, timeout);
         }
+
+        private async doGetWalletLists() {
+            if (this.isLast) {
+                return;
+            }
+
+            // 获取已确认的订单
+            var res = await ApiTool.getWalletListss(Main.user.info.uid, Main.user.info.token, this.page, this.num, Main.netMgr.type, 0);
+
+            if (res.r) {
+                if (res.data && res.data.length >= 1) {
+                    if (res.data.length < this.num) {
+                        this.isLast = true;
+                        this.divRecListsMore.textContent = Main.langMgr.get("paylist_noMore") //"没有记录了"
+                    }
+                    else {
+                        this.page += 1;
+                        this.divRecListsMore.textContent = Main.langMgr.get("paylist_getMore") //"点击加载更多记录"
+                    }
+
+                    // 加载新数据
+                    await res.data.forEach(
+                        txlist => {
+                            // li
+                            var txlistObj = this.objCreate("li")
+                            txlistObj.onclick = () => {
+                                for (var i in this.divRecLists.children) {
+                                    if (this.divRecLists.children[i].className == "active") {
+                                        this.divRecLists.children[i].classList.remove('active')
+                                    }
+                                }
+                                txlistObj.classList.add("active")
+                                this.hidden()
+                                PayListDetailView.refer = "PayListMoreView"
+                                PayListDetailView.list = txlist;
+                                Main.viewMgr.change("PayListDetailView")
+                            }
+
+
+                            
+
+
+                            
+                           
+
+                            
+
+                            // img
+                            var gameimg_div = this.objCreate("div")
+                            gameimg_div.classList.add("pc_liststate")
+                            var img = this.objCreate("img") as HTMLImageElement
+                            img.src = Main.viewMgr.payView.getListImg(txlist)
+                            this.ObjAppend(gameimg_div, img)
+                            this.ObjAppend(txlistObj, gameimg_div)
+
+                            
+                            
+                          
+
+                             // Tokenname & amount
+                            var txcontent_div = this.objCreate("div")
+                            txcontent_div.classList.add("pc_txinfo")
+
+                            var tokenname_div = this.objCreate("div")
+                            tokenname_div.classList.add("pc_listname")
+                            tokenname_div.textContent = Main.viewMgr.payView.getListName(txlist)
+                            this.ObjAppend(txcontent_div, tokenname_div)
+
+
+                            //交易时间
+                            var txdate_p = this.objCreate("p")
+                            txdate_p .classList.add("pc_method")
+                            txdate_p .textContent = Main.viewMgr.payView.getListParamMethods(txlist)
+                            this.ObjAppend(txcontent_div, txdate_p )
+
+                            this.ObjAppend(txlistObj, txcontent_div)
+
+                            // cnts 
+                            var cnts_div = this.objCreate("div")
+                            cnts_div.classList.add("pc_cnts")
+
+                            //数量
+                            var txamount_span = this.objCreate("div")
+                            txamount_span.classList.add("pc_listdate")
+                            txamount_span.textContent = Main.viewMgr.payView.getListCtmMsg(txlist)
+                            this.ObjAppend(cnts_div, txamount_span)
+
+                    
+
+                            this.ObjAppend(txlistObj, cnts_div)
+
+                            
+
+                             var cnts = Main.viewMgr.payView.getListCnts(txlist)
+                            if (cnts) {
+                                this.ObjAppend(cnts_div, cnts);
+
+                                var cnts_class = Main.viewMgr.payView.getListCntsClass(txlist);
+                                if (cnts_class) cnts_div.classList.add(cnts_class)
+                            }
+
+                            var state = Main.viewMgr.payView.getListState(txlist)
+                            if (state) this.ObjAppend(cnts_div, state)
+
+                            this.ObjAppend(txlistObj, cnts_div)
+
+                            
+
+                            this.ObjAppend(this.divRecLists, txlistObj)
+                        }
+                    );
+                }
+                else {
+                    // 无交易记录
+                    this.divRecListsMore.textContent = Main.langMgr.get("paylist_noRecord") //"没有记录信息哦"
+                }
+            }
+            else {
+                Main.showErrCode(res.errCode)
+            }
+
+        
+
+    
+}
 
         updateBalance() {
             let type_lowcase = PayExchangeShowWalletView.callback_params.type_src.toLowerCase()
