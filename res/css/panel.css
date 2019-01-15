@@ -449,6 +449,7 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
  .pc_assetsearch i{position: absolute;margin: 9px 0 0 15px;}
  .pc_assetsearch .espan{float: right; position: right;margin-bottom: 10px;color: #fcf9f9 ;font-size:5px}
 
+<<<<<<< HEAD
  .pc_tokentitle{color: #dbdde9;border: none;margin-bottom: 10px;padding: 0 20px;line-height: 40px}
  .pc_tokentitle .tokentype{color: #dbdde9;border: auto;text-align :left;padding-right:50px}
  .pc_tokentitle .exbalance{color: #dbdde9;border: auto;text-align :center;padding-right:50px}
@@ -456,6 +457,9 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 
 
 
+=======
+ .pc_tokentitle{color: #dbdde9;border: none;margin-bottom: 10px;padding: 0 20px;}
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
  
 
  
@@ -515,15 +519,23 @@ li.pc_payrecord{font-size: 16px;color: #dbdde9;line-height: 20px;padding: 0;curs
 
 
 .pc_exleftpane{float:left; width:60%; height: 400px ; padding:10px 10px 10px;color: #606174; box-sizing:border-box }
+<<<<<<< HEAD
 .pc_exleftpane .selecttoken{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174;font-size: 10px ;padding-top:5px;}
 .pc_exleftpane .tokenoption{float:right;padding-top:5px;background-color: #2b2c39;color: #606174}
+=======
+.pc_exleftpane .selecttoken{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174}
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
 .pc_exleftpane .daygraph{width: 80%;height: 100px;padding-left: 12%; margin-bottom:10px;background-color: #2b2c39;color: #606174}
 .pc_exleftpane .pricebar{width: 80%;height: 35px;padding-left: 12%;float: center; margin-bottom:10px; background-color: #2b2c39;color: #606174}
 .pc_exleftpane .input{width: 85%;height: 35px;padding-left: 12%; position: center; background-color: #2b2c39;color: #606174}
 .pc_exleftpane .amountbar{width: 80%;height: 35px;padding-left: 12%; margin-bottom:10px; background-color: #2b2c39;color: #606174}
 .pc_exleftpane .countbar{width: 80%;height: 35px;padding-left: 12%; margin-bottom:5px; background-color: #2b2c39;color: #606174}
+<<<<<<< HEAD
 .pc_exleftpane .gasselect{width: 85%;height: 15px;padding-right: 12%;color: #606174;font-size: 10px }
 .pc_exleftpane .gasoption{padding-top:5px;background-color: #2b2c39;color: #606174}
+=======
+.pc_exleftpane .gasselect{width: 85%;height: 15px;padding-right: 12%;color: #606174}
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
 .pc_exleftpane .buybutton{width:90%;border: 1px solid #f3ce87;color:#f3ce87;margin-top: 15px; padding: 2px 0; height: 35px; border-radius: 3px;font-weight: bold}
 
 

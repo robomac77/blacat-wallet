@@ -2283,9 +2283,13 @@ declare namespace BlackCat {
 }
 declare namespace BlackCat {
     class BuyExchangeDepositView extends ViewBase {
+<<<<<<< HEAD
         static balance: number;
         private inputCount;
         private inputwithdrawCount;
+=======
+        static balance: number;
+        private inputCount;
         private buyPriceTable;
         private sellPriceTable;
         private selectGas;
@@ -2304,6 +2308,45 @@ declare namespace BlackCat {
         private divListsMore;
         private divRecListsMore;
         private divNetSelect;
+        private assettabDiv;
+        private buyintabDiv;
+        start(): void;
+        create(): void;
+        toRefer(): void;
+        key_esc(): void;
+        private doCancel;
+        private getNetTypeName;
+        private showChangeNetType;
+        private getDivNetSelectType;
+        private addGetWalletLists;
+    }
+}
+declare namespace BlackCat {
+    class BuyExchangePurchaseView extends ViewBase {
+        static balance: number;
+        private inputPrice;
+        private inputAmount;
+        private inputassetSearch;
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
+        private buyPriceTable;
+        private sellPriceTable;
+        private selectGas;
+        private selectToken;
+        private s_getWalletLists;
+        wallet_addr: string;
+        wallet_addr_other: any;
+        height_clis: number;
+        private divHeight_clis;
+        height_nodes: number;
+        private divHeight_nodes;
+        listPageNum: number;
+        private walletListsHash;
+        private divLists;
+        private divRecLists;
+        private divListsMore;
+        private divRecListsMore;
+        private divNetSelect;
+<<<<<<< HEAD
         private depositDiv;
         private withdrawDiv;
         start(): void;
@@ -2336,6 +2379,8 @@ declare namespace BlackCat {
         private divHeight_nodes;
         listPageNum: number;
         private divNetSelect;
+=======
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
         private assettabDiv;
         private buyintabDiv;
         start(): void;

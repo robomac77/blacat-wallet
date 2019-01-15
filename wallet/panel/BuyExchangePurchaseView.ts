@@ -52,6 +52,16 @@ namespace BlackCat {
              this.assettabDiv.hidden()
         }
 
+        private assettabDiv;
+        private buyintabDiv;
+
+
+        start() {
+            super.start()
+             
+             this.assettabDiv.hidden()
+        }
+
 
         create() {
             this.div = this.objCreate("div") as HTMLDivElement
@@ -147,6 +157,10 @@ namespace BlackCat {
             this.ObjAppend(divexPages, divexTab)
 
             var myAssetspan = this.objCreate("div")
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
             myAssetspan.innerText = Main.langMgr.get("buy_exchange_purchase_myasset")
             
             myAssetspan.onclick = () => {
@@ -155,11 +169,27 @@ namespace BlackCat {
 
                 myAssetspan.classList.add("active")
                 //this.assettabDiv.display()
+<<<<<<< HEAD
+=======
+=======
+            myAssetspan.textContent = "我的资产"
+            myAssetspan.onclick = () => {
+                myAssetspan.classList.add("active")
+                this.buyintabDiv.remove()
+                //this.buyintabDiv.style.display = 'hidden'
+                //this.assettabDiv.display()
+                
+>>>>>>> 144eb34d5c0dbfaed8686d84cf1c0ef21ba573fc
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
              }
             this.ObjAppend(divexTab,myAssetspan)
 
             var buyInspan = this.objCreate("div")
             buyInspan.classList.add("active")
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
             buyInspan.innerText = Main.langMgr.get("buy_exchange_purchase_buyin") 
             
         
@@ -172,6 +202,12 @@ namespace BlackCat {
 
             
 
+<<<<<<< HEAD
+=======
+=======
+            buyInspan.textContent = "买入"
+>>>>>>> 144eb34d5c0dbfaed8686d84cf1c0ef21ba573fc
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
             this.ObjAppend(divexTab,buyInspan)
             
 
@@ -203,7 +239,10 @@ namespace BlackCat {
             
 
             this.selectToken = this.objCreate("select") as HTMLSelectElement
+<<<<<<< HEAD
             this.selectToken.classList.add("tokenoption")
+=======
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
             var tokenType = AreaView.getAreaByLang(Main.langMgr.type)
               tokenType.forEach(
                 token => {
@@ -234,6 +273,7 @@ namespace BlackCat {
             divDayGraph.classList.add("daygraph")
             this.ObjAppend(divSelectBox,divDayGraph)
 
+<<<<<<< HEAD
             var chartDiv = this.objCreate("div")
             chartDiv.classList.add("chart")
             this.ObjAppend(divDayGraph, chartDiv)
@@ -273,6 +313,12 @@ namespace BlackCat {
             myChart.setOption(option);*/
 
            
+=======
+           
+
+
+
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
             var divPriceBar = this.objCreate("div")
             divPriceBar.classList.add("pricebar")
             this.ObjAppend(divSelectBox,divPriceBar)
@@ -356,8 +402,17 @@ namespace BlackCat {
              divBuyTable.classList.add("pc_buytable")
             this.ObjAppend(divRightPane,divBuyTable)
 
+<<<<<<< HEAD
             this.buyPriceTable = this.objCreate("div") as HTMLTableElement
             this.ObjAppend(divBuyTable,this.buyPriceTable)
+=======
+<<<<<<< HEAD
+            this.buyPriceTable = this.objCreate("div") as HTMLTableElement
+            this.ObjAppend(divBuyTable,this.buyPriceTable)
+=======
+            //TODO: buy price amount table here
+>>>>>>> 144eb34d5c0dbfaed8686d84cf1c0ef21ba573fc
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
 
 
             var divSellTable = this.objCreate("div")
@@ -365,8 +420,16 @@ namespace BlackCat {
            this.ObjAppend(divRightPane,divSellTable)
 
            //TODO: sell price amount table here
+<<<<<<< HEAD
            this.sellPriceTable = this.objCreate("div") as HTMLTableElement
            this.ObjAppend(divSellTable,this.sellPriceTable)
+=======
+<<<<<<< HEAD
+           this.sellPriceTable = this.objCreate("div") as HTMLTableElement
+           this.ObjAppend(divSellTable,this.sellPriceTable)
+=======
+>>>>>>> 144eb34d5c0dbfaed8686d84cf1c0ef21ba573fc
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
 
 
 
@@ -402,6 +465,10 @@ namespace BlackCat {
                // this.searchAddressbook()
             }
             this.ObjAppend(divassetSearch, this.inputassetSearch)  
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
      
             var titleDiv = this.objCreate("div")
             titleDiv.classList.add("pc_tokentitle")
@@ -409,6 +476,7 @@ namespace BlackCat {
 
 
             var tokenSpan = this.objCreate("span");
+<<<<<<< HEAD
             tokenSpan.classList.add("tokentype")
             tokenSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_tokentype");
             this.ObjAppend(titleDiv, tokenSpan)
@@ -432,6 +500,30 @@ namespace BlackCat {
             this.ObjAppend(this.assettabDiv, divAssetList)
 
 
+=======
+=======
+
+            var tokenSpan = this.objCreate("span");
+            this.ObjAppend(this.div, tokenSpan);
+            tokenSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_tokentype");
+
+            var exBalanceSpan = this.objCreate("span");
+            this.ObjAppend(this.div, exBalanceSpan);
+            exBalanceSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_exchangetitle");
+
+
+            var walletBalanceSpan = this.objCreate("span");
+            this.ObjAppend(this.div, walletBalanceSpan);
+            walletBalanceSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_wallettitle");
+
+
+            var divAssetList = this.objCreate("div")
+            divAssetList.classList.add("pc_assetlist")
+           // divAssetList.style.display = "none"
+            this.ObjAppend(this.div, divAssetList)
+
+
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
 
             // 数字币种具体
             for (let i = 0; i < PayView.tokens.length; i++) {
@@ -440,13 +532,19 @@ namespace BlackCat {
 
 
                 let assetElement = this.objCreate("div")
+<<<<<<< HEAD
                  //assetElement.classList.add("assetspan")
+=======
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
                 // 名称
                 assetElement.innerHTML = Main.langMgr.get(coin)
                 this.ObjAppend(divAssetList, assetElement)
 
                 var assetBalance = this.objCreate("span")
+<<<<<<< HEAD
                 assetBalance.classList.add("assetspan")
+=======
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
                 assetBalance.textContent = "0"
                 this.ObjAppend(assetElement, assetBalance)
 
@@ -456,7 +554,84 @@ namespace BlackCat {
               
                 // 字体图标">"
                 let moreElement = this.objCreate("i")
+<<<<<<< HEAD
                 moreElement.classList.add("morelement")
+=======
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
+                moreElement.classList.add("iconfont", "icon-bc-gengduo")
+                this.ObjAppend(assetElement, moreElement)
+
+
+                // 余额
+               
+                // 点击事件
+                assetElement.onclick = () => {
+<<<<<<< HEAD
+                BuyExchangeDepositView.refer = ""
+                BuyExchangeDepositView.callback_params = BuyExchangePurchaseView.callback_params
+                BuyExchangeDepositView.balance = BuyExchangePurchaseView.balance
+
+                Main.viewMgr.change("BuyExchangeDepositView")
+=======
+                   // this["doExchange" + coin.toUpperCase()]()
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
+
+                }
+                
+                
+            }  
+<<<<<<< HEAD
+=======
+>>>>>>> 144eb34d5c0dbfaed8686d84cf1c0ef21ba573fc
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
+            
+            tokenSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_tokentype");
+            this.ObjAppend(titleDiv, tokenSpan)
+
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            var exBalanceSpan = this.objCreate("span");
+            
+            exBalanceSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_exchangetitle");
+            this.ObjAppend(titleDiv, exBalanceSpan)
+
+
+            var walletBalanceSpan = this.objCreate("span");
+           
+            walletBalanceSpan.textContent = BlackCat.Main.langMgr.get("buy_exchange_purchase_wallettitle");
+            this.ObjAppend(titleDiv, walletBalanceSpan)
+
+
+
+            var divAssetList = this.objCreate("div")
+            divAssetList.classList.add("pc_assetlist")
+           // divAssetList.style.display = "none"
+            this.ObjAppend(this.assettabDiv, divAssetList)
+
+
+
+            // 数字币种具体
+            for (let i = 0; i < PayView.tokens.length; i++) {
+                let coin = PayView.tokens[i]
+
+
+
+                let assetElement = this.objCreate("div")
+                // 名称
+                assetElement.innerHTML = Main.langMgr.get(coin)
+                this.ObjAppend(divAssetList, assetElement)
+
+                var assetBalance = this.objCreate("span")
+                assetBalance.textContent = "0"
+                this.ObjAppend(assetElement, assetBalance)
+
+                var walletBalance = this.objCreate("span")
+                walletBalance.textContent = "0"
+                this.ObjAppend(assetElement, walletBalance)
+              
+                // 字体图标">"
+                let moreElement = this.objCreate("i")
                 moreElement.classList.add("iconfont", "icon-bc-gengduo")
                 this.ObjAppend(assetElement, moreElement)
 
@@ -478,9 +653,20 @@ namespace BlackCat {
             
 
          
+=======
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
+         
 
 
             
+<<<<<<< HEAD
+=======
+
+>>>>>>> 144eb34d5c0dbfaed8686d84cf1c0ef21ba573fc
+
+
+            
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
 
 
 
@@ -489,6 +675,11 @@ namespace BlackCat {
                   
 
                   
+<<<<<<< HEAD
+=======
+
+                  
+>>>>>>> b951e2f3481e07619080f02ac1f2a3371013696c
             
  }
         
