@@ -619,6 +619,10 @@ namespace BlackCat {
             buy_exchange_purchase_exchangetitle:"交易所余额",
             buy_exchange_purchase_wallettitle:"钱包余额",
             buy_exchange_purchase_buyunconfirmed:"买入中",
+            buy_exchange_purchase_deposit:"存入",
+            buy_exchange_purchase_withdraw:"取出",
+            
+
             
             // PayExchangeBcpDetail
             pay_exchange_bcp: "获取BCP",

@@ -186,7 +186,9 @@ namespace BlackCat {
                 //刷新图标            
                 var iRefresh = this.objCreate("i")
                 iRefresh.classList.add("iconfont", "icon-bc-shuaxin")
-                this.ObjAppend(payRefresh, iRefresh)
+                //this.ObjAppend(divWallet, payRefresh)
+                this.ObjAppend(divWallet,iRefresh)
+                
 
 
                 // 收款

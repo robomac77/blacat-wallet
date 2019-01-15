@@ -619,6 +619,9 @@ namespace BlackCat {
             buy_exchange_purchase_exchangetitle:"Exchange Balance",
             buy_exchange_purchase_wallettitle:"Wallet Balance",
             buy_exchange_purchase_buyunconfirmed:"In Process",
+            buy_exchange_purchase_deposit:"Deposit",
+            buy_exchange_purchase_withdraw:"Withdraw",
+           
             
 
 

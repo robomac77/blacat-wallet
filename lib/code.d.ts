@@ -735,6 +735,8 @@ declare namespace BlackCat {
             buy_exchange_purchase_exchangetitle: string;
             buy_exchange_purchase_wallettitle: string;
             buy_exchange_purchase_buyunconfirmed: string;
+            buy_exchange_purchase_deposit: string;
+            buy_exchange_purchase_withdraw: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -1381,6 +1383,8 @@ declare namespace BlackCat {
             buy_exchange_purchase_exchangetitle: string;
             buy_exchange_purchase_wallettitle: string;
             buy_exchange_purchase_buyunconfirmed: string;
+            buy_exchange_purchase_deposit: string;
+            buy_exchange_purchase_withdraw: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -2027,6 +2031,8 @@ declare namespace BlackCat {
             buy_exchange_purchase_exchangetitle: string;
             buy_exchange_purchase_wallettitle: string;
             buy_exchange_purchase_buyunconfirmed: string;
+            buy_exchange_purchase_deposit: string;
+            buy_exchange_purchase_withdraw: string;
             pay_exchange_bcp: string;
             pay_exchange_create_wallet_fail: string;
             pay_exchange_detail_buy_CGAS_fail: string;
@@ -2276,16 +2282,14 @@ declare namespace BlackCat {
     }
 }
 declare namespace BlackCat {
-    class BuyExchangePurchaseView extends ViewBase {
+    class BuyExchangeDepositView extends ViewBase {
         static balance: number;
-        private balanceElement;
-        private abcbalanceElement;
-        private recentElement;
-        private reclistsDiv;
-        private recgetMoreDiv;
-        private inputPrice;
-        private inputAmount;
+        private inputCount;
+        private inputwithdrawCount;
+        private buyPriceTable;
+        private sellPriceTable;
         private selectGas;
+        private selectToken;
         private s_getWalletLists;
         wallet_addr: string;
         wallet_addr_other: any;
@@ -2300,6 +2304,41 @@ declare namespace BlackCat {
         private divListsMore;
         private divRecListsMore;
         private divNetSelect;
+        private depositDiv;
+        private withdrawDiv;
+        start(): void;
+        create(): void;
+        toRefer(): void;
+        key_esc(): void;
+        private doCancel;
+        private getNetTypeName;
+        private showChangeNetType;
+        private getDivNetSelectType;
+        private addGetWalletLists;
+    }
+}
+declare namespace BlackCat {
+    class BuyExchangePurchaseView extends ViewBase {
+        static balance: number;
+        private inputPrice;
+        private inputAmount;
+        private inputassetSearch;
+        private buyPriceTable;
+        private sellPriceTable;
+        private selectGas;
+        private selectToken;
+        private s_getWalletLists;
+        wallet_addr: string;
+        wallet_addr_other: any;
+        height_clis: number;
+        private divHeight_clis;
+        height_nodes: number;
+        private divHeight_nodes;
+        listPageNum: number;
+        private divNetSelect;
+        private assettabDiv;
+        private buyintabDiv;
+        start(): void;
         create(): void;
         toRefer(): void;
         key_esc(): void;
@@ -3029,6 +3068,7 @@ declare namespace BlackCat {
         payExchangeRefundView: PayExchangeRefundView;
         buyExchangeView: BuyExchangeView;
         buyExchangePurchaseView: BuyExchangePurchaseView;
+        buyExchangeDepositView: BuyExchangeDepositView;
         addressbookView: AddressbookView;
         addressbookDetailsView: AddressbookDetailsView;
         addressbookOpView: AddressbookOpView;
